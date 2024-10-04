@@ -1,17 +1,17 @@
 CC = g++
 
-CFLAGS = -Wall 
+CFLAGS = -Wall -O3 -Werror -g
 
 OPENCV_FLAGS = `pkg-config --cflags --libs opencv4`
 
-SRC = image_view.cpp
+all: sobel_filter_image sobel_filter_video
 
-TARGET = image_viewer
+sobel_filter_image: sobel_filter_image.cpp
+	$(CC) $(CFLAGS) -o $@ $< $(OPENCV_FLAGS)
 
-all: $(TARGET)
+sobel_filter_video: sobel_filter_video.cpp
+	$(CC) $(CFLAGS) -o $@ $< $(OPENCV_FLAGS)
 
-$(TARGET): $(SRC)
-	$(CC) $(CFLAGS) -o $(TARGET) $(SRC) $(OPENCV_FLAGS)
 
 clean:
-	rm -f $(TARGET)
+	rm -f sobel_filter_image sobel_filter_video
