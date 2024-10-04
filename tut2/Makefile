@@ -1,6 +1,6 @@
 CC = g++
 
-CFLAGS = -Wall -O3 -Werror -g
+CFLAGS = -Wall -O0 -Werror -g
 
 OPENCV_FLAGS = `pkg-config --cflags --libs opencv4`
 

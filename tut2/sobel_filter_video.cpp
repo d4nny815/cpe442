@@ -96,23 +96,19 @@ Mat apply_sobel_to_greyscale(Mat& frame) {
 }
 
 Mat get_neighbors(Mat& frame, int row, int col) {
-    // Ensure the pixel is not on the border
     int start_row = std::max(0, row - 1);
     int end_row = std::min(frame.rows - 1, row + 1);
     int start_col = std::max(0, col - 1);
     int end_col = std::min(frame.cols - 1, col + 1);
 
-    // Define the size of the region of interest (ROI)
     Rect roi(start_col, start_row, end_col - start_col + 1, end_row - start_row + 1);
     
-    // Extract and return the 3x3 neighborhood (or smaller at the borders)
-    return frame(roi).clone();  // Clone to return a copy of the submatrix
+    return frame(roi).clone();
 }
 
 
 uint8_t apply_sobel_gradient(Mat& neighbors) {
 
-    // Sobel kernels
     const int8_t Gx_kernel[3][3] = {
         {-1, 0, 1},
         {-2, 0, 2},
@@ -128,16 +124,17 @@ uint8_t apply_sobel_gradient(Mat& neighbors) {
     int16_t Gx = 0;
     int16_t Gy = 0;
 
-
-    for (int i = 0; i < 3; i += 2) {
-        for (int j = 0; j < 3; j += 2) {
-            uint8_t pixel_value = neighbors.at<uint8_t>(i, j); // Get pixel value
-            Gx += pixel_value * Gx_kernel[i][j]; // Apply Gx kernel
-            Gy += pixel_value * Gy_kernel[i][j]; // Apply Gy kernel
+    // skip 2 since centers are 0;
+    for (int row = 0; row < 3; row += 2) {
+        for (int col = 0; col < 3; col += 2) {
+            uint8_t pixel_value = neighbors.at<uint8_t>(row, col); 
+            Gx += pixel_value * Gx_kernel[row][col]; 
+            Gy += pixel_value * Gy_kernel[row][col]; 
         }
     }
 
-    int16_t G = std::sqrt(Gx * Gx + Gy *Gy);
+    // int16_t G = std::sqrt(Gx * Gx + Gy *Gy);
+    int16_t G = std::abs(Gx) + std::abs(Gy);
     return G > 255 ? 255 : G;
 }
 
