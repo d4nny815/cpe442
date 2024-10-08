@@ -1,3 +1,4 @@
+# Makefile
 CC = g++
 
 CFLAGS = -Wall -Werror -O0
