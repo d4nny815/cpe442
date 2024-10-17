@@ -111,17 +111,16 @@ Mat get_neighbors(Mat& frame, int row, int col) {
 
 
 uint8_t apply_sobel_gradient(Mat& neighbors) {
-
-    const int8_t Gx_kernel[3][3] = {
+    const int8_t Gx_matrix[3][3] = {
         {-1, 0, 1},
         {-2, 0, 2},
         {-1, 0, 1}
     };
     
-    const int8_t Gy_kernel[3][3] = {
-        {-1, -2, -1},
-        { 0,  0,  0},
-        { 1,  2,  1}
+    const int8_t Gy_matrix[3][3] = {
+        {1, 2, 1},
+        {0, 0, 0},
+        {-1, -2, -1}
     };
 
     int16_t Gx = 0;
@@ -131,8 +130,8 @@ uint8_t apply_sobel_gradient(Mat& neighbors) {
     for (int row = 0; row < 3; row += 2) {
         for (int col = 0; col < 3; col += 2) {
             uint8_t pixel_value = neighbors.at<uint8_t>(row, col); 
-            Gx += pixel_value * Gx_kernel[row][col]; 
-            Gy += pixel_value * Gy_kernel[row][col]; 
+            Gx += pixel_value * Gx_matrix[row][col]; 
+            Gy += pixel_value * Gy_matrix[row][col]; 
         }
     }
 
