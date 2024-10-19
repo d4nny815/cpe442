@@ -8,6 +8,7 @@
 
 using namespace cv;
 
+// main functions
 void to442_greyscale(Mat& frame, Mat& end_frame, int id, int partition_size);
 uint8_t convert_pixel_to_greyscale(Vec3b pixel);
 
@@ -16,6 +17,8 @@ uint8_t apply_sobel_gradient(uint8_t* neighbors);
 
 void get_neighbors(Mat& frame, int row, int col, uint8_t neighbors[9]);
 
+
+// Everything do deal with threading
 #define NUM_THREADS     (4)
 pthread_t threads[NUM_THREADS];
 typedef struct threadArgs_t {
@@ -24,9 +27,9 @@ typedef struct threadArgs_t {
     Mat grey_frame;
     Mat sobel_frame;
 } threadArgs_t;
+pthread_barrier_t barrier;
+void* thread_sobelfilter_func(void* threadArg);
 
-void* thread_grey_func(void* threadArg);
-void* thread_sobel_func(void* threadArg);
 
 int main(int argc, char** argv) {
     if (argc != ARG_LEN) {
@@ -34,12 +37,13 @@ int main(int argc, char** argv) {
         exit(1);
     }
 
-    printf("Attempting to open %s\n", argv[1]);
     VideoCapture vid(argv[1]);
     if (!vid.isOpened()) {
         printf("Error: Could not open or find the video.\n");
         exit(1);
     }
+
+    pthread_barrier_init(&barrier, NULL, NUM_THREADS);
 
     while (1) {
         Mat frame;
@@ -55,16 +59,7 @@ int main(int argc, char** argv) {
 
         for (int i = 0; i < NUM_THREADS; i++) {
             threadArgs[i] = {i, frame, grey_frame, sobel_image};
-            pthread_create(&threads[i], NULL, thread_grey_func, (void*)&threadArgs[i]);
-        }
-
-        for (int i = 0; i < NUM_THREADS; i++) {
-            pthread_join(threads[i], NULL);
-        }
-
-        for (int i = 0; i < NUM_THREADS; i++) {
-            threadArgs[i] = {i, frame, grey_frame, sobel_image};
-            pthread_create(&threads[i], NULL, thread_sobel_func, (void*)&threadArgs[i]);
+            pthread_create(&threads[i], NULL, thread_sobelfilter_func, (void*)&threadArgs[i]);
         }
 
         for (int i = 0; i < NUM_THREADS; i++) {
@@ -81,24 +76,18 @@ int main(int argc, char** argv) {
     return 0;
 }
 
-void* thread_grey_func(void* threadArg) {
+
+void* thread_sobelfilter_func(void* threadArg) {
     threadArgs_t* args = (threadArgs_t*) threadArg;
     int partition_size = args->frame.rows / NUM_THREADS;
 
     to442_greyscale(args->frame, args->grey_frame, args->id, partition_size);
-
-    pthread_exit(NULL);
-}
-
-
-void* thread_sobel_func(void* threadArg) {
-    threadArgs_t* args = (threadArgs_t*) threadArg;
-    int partition_size = args->frame.rows / NUM_THREADS;
-
+    pthread_barrier_wait(&barrier);
     to442_sobel(args->grey_frame, args->sobel_frame, args->id, partition_size);
 
     pthread_exit(NULL);
 }
+
 
 void to442_greyscale(Mat& frame, Mat& end_frame, int id, int partition_size) {
     int start_ind = id * partition_size;
@@ -112,6 +101,7 @@ void to442_greyscale(Mat& frame, Mat& end_frame, int id, int partition_size) {
     }
 }
 
+
 void to442_sobel(Mat& frame, Mat& end_frame, int id, int partition_size) {
     int start_ind = id * partition_size;
     int end_ind = start_ind + partition_size;
@@ -123,20 +113,22 @@ void to442_sobel(Mat& frame, Mat& end_frame, int id, int partition_size) {
         end_ind--;
     }
 
+    uint8_t neighbors[9];
     for (int row = start_ind; row < end_ind; row++) {
         for (int col = 1; col < frame.cols - 1; col++) { 
-            uint8_t neighbors[9];
             get_neighbors(frame, row, col, neighbors);
             end_frame.at<uint8_t>(row, col) = apply_sobel_gradient(neighbors);
         }
     }
 }
 
+
 uint8_t convert_pixel_to_greyscale(Vec3b pixel) {
     // CCIR 601 
     // Y = .299 * R + .587 * G + .114 * B
     return .299 * pixel[2] + .587 * pixel[1] + .114 * pixel[0];
 }
+
 
 uint8_t apply_sobel_gradient(uint8_t* neighbors) {
     const int8_t Gx_matrix[3][3] = {
