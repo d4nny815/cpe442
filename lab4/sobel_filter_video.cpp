@@ -25,6 +25,7 @@ typedef struct threadArgs_t {
     Mat sobel_frame;
 } threadArgs_t;
 
+void* thread_grey_func(void* threadArg);
 void* thread_sobel_func(void* threadArg);
 
 int main(int argc, char** argv) {
@@ -54,6 +55,15 @@ int main(int argc, char** argv) {
 
         for (int i = 0; i < NUM_THREADS; i++) {
             threadArgs[i] = {i, frame, grey_frame, sobel_image};
+            pthread_create(&threads[i], NULL, thread_grey_func, (void*)&threadArgs[i]);
+        }
+
+        for (int i = 0; i < NUM_THREADS; i++) {
+            pthread_join(threads[i], NULL);
+        }
+
+        for (int i = 0; i < NUM_THREADS; i++) {
+            threadArgs[i] = {i, frame, grey_frame, sobel_image};
             pthread_create(&threads[i], NULL, thread_sobel_func, (void*)&threadArgs[i]);
         }
 
@@ -64,17 +74,27 @@ int main(int argc, char** argv) {
         namedWindow("Sobel", WINDOW_NORMAL);
         resizeWindow("Sobel", WINDOW_LENGTH, WINDOW_HEIGHT);
         imshow("Sobel", sobel_image);
+        // imshow("Sobel", grey_frame);
 
         if (waitKey(1) == 27) break;
     }
     return 0;
 }
 
-void* thread_sobel_func(void* threadArg) {
+void* thread_grey_func(void* threadArg) {
     threadArgs_t* args = (threadArgs_t*) threadArg;
     int partition_size = args->frame.rows / NUM_THREADS;
 
     to442_greyscale(args->frame, args->grey_frame, args->id, partition_size);
+
+    pthread_exit(NULL);
+}
+
+
+void* thread_sobel_func(void* threadArg) {
+    threadArgs_t* args = (threadArgs_t*) threadArg;
+    int partition_size = args->frame.rows / NUM_THREADS;
+
     to442_sobel(args->grey_frame, args->sobel_frame, args->id, partition_size);
 
     pthread_exit(NULL);
