@@ -11,9 +11,9 @@ Mat to442_greyscale(Mat& frame);
 uint8_t convert_pixel_to_greyscale(Vec3b pixel);
 
 Mat to442_sobel(Mat& frame);
-uint8_t apply_sobel_gradient(Mat& neighbors);
+uint8_t apply_sobel_gradient(uint8_t* neighbors);
 
-Mat get_neighbors(Mat& frame, int row, int col);
+void get_neighbors(Mat& frame, int row, int col, uint8_t neighsbors[9]);
 
 
 int main(int argc, char** argv) {
@@ -88,7 +88,9 @@ Mat to442_sobel(Mat& frame) {
 
     for (int row = 1; row < frame.rows - 1; row++) {
         for (int col = 1; col < frame.cols - 1; col++) {
-            Mat neighbors = get_neighbors(frame, row, col);
+            uint8_t neighbors[9];
+            // Mat neighbors = get_neighbors(frame, row, col);
+            get_neighbors(frame, row, col, neighbors);
             sobel_frame.at<uint8_t>(row, col) = apply_sobel_gradient(neighbors);
         }
     }
@@ -97,20 +99,24 @@ Mat to442_sobel(Mat& frame) {
 }
 
 
-Mat get_neighbors(Mat& frame, int row, int col) {
-    int start_row = row - 1;
-    int end_row = row + 1;
-    int start_col = col - 1;
-    int end_col = col + 1;
+void get_neighbors(Mat& frame, int row, int col, uint8_t neighbors[9]) {
+    uint8_t* frame_data = frame.ptr<uint8_t>();
+    int cols = frame.cols;
+    int idx = row * cols + col;
 
-    Rect roi(start_col, start_row, 
-            end_col - start_col + 1, end_row - start_row + 1);
-    
-    return frame(roi).clone();
+    neighbors[0] = frame_data[idx - cols - 1]; // top-left
+    neighbors[1] = frame_data[idx - cols];     // top-center
+    neighbors[2] = frame_data[idx - cols + 1]; // top-right
+    neighbors[3] = frame_data[idx - 1];        // mid-left
+    neighbors[4] = frame_data[idx];            // mid-center (current pixel)
+    neighbors[5] = frame_data[idx + 1];        // mid-right
+    neighbors[6] = frame_data[idx + cols - 1]; // bottom-left
+    neighbors[7] = frame_data[idx + cols];     // bottom-center
+    neighbors[8] = frame_data[idx + cols + 1]; // bottom-right
 }
 
 
-uint8_t apply_sobel_gradient(Mat& neighbors) {
+uint8_t apply_sobel_gradient(uint8_t* neighbors) {
     const int8_t Gx_matrix[3][3] = {
         {-1, 0, 1},
         {-2, 0, 2},
@@ -118,18 +124,19 @@ uint8_t apply_sobel_gradient(Mat& neighbors) {
     };
     
     const int8_t Gy_matrix[3][3] = {
-        {1, 2, 1},
-        {0, 0, 0},
+        { 1,  2,  1},
+        { 0,  0,  0},
         {-1, -2, -1}
     };
 
     int16_t Gx = 0;
     int16_t Gy = 0;
 
+    uint8_t pixel_value;
     // skip 2 since centers are 0;
     for (int row = 0; row < 3; row += 2) {
         for (int col = 0; col < 3; col += 2) {
-            uint8_t pixel_value = neighbors.at<uint8_t>(row, col); 
+            pixel_value = neighbors[row * 3 + col];
             Gx += pixel_value * Gx_matrix[row][col]; 
             Gy += pixel_value * Gy_matrix[row][col]; 
         }
