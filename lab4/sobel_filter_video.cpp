@@ -44,6 +44,8 @@ int main(int argc, char** argv) {
     }
 
     pthread_barrier_init(&barrier, NULL, NUM_THREADS);
+    double fps = 0.0;
+    double prev_tick = cv::getTickCount();
 
     while (1) {
         Mat frame;
@@ -52,6 +54,14 @@ int main(int argc, char** argv) {
             printf("End of video\n");
             break;
         }
+
+        double current_tick = cv::getTickCount();
+        double time_elapsed = (current_tick - prev_tick) / cv::getTickFrequency();
+        prev_tick = current_tick;
+        fps = 1.0 / time_elapsed;
+
+        printf("FPS: %.2f\n", fps); 
+
 
         threadArgs_t threadArgs[NUM_THREADS];
         Mat grey_frame(frame.rows, frame.cols, CV_8UC1);

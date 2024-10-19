@@ -29,9 +29,8 @@ int main(int argc, char** argv) {
         exit(1);
     }
 
-    double fps = vid.get(CAP_PROP_FPS);
-    printf("FPS: %lf\n", fps);
-
+    double fps = 0.0;
+    double prev_tick = cv::getTickCount();
 
     while (1) {
         Mat frame;
@@ -40,6 +39,13 @@ int main(int argc, char** argv) {
             printf("End of video\n");
             break;
         }
+
+        double current_tick = cv::getTickCount();
+        double time_elapsed = (current_tick - prev_tick) / cv::getTickFrequency();
+        prev_tick = current_tick;
+        fps = 1.0 / time_elapsed;
+
+        printf("FPS: %.2f\n", fps); 
 
         Mat grey_image = to442_greyscale(frame);
         Mat sobel_image = to442_sobel(grey_image);
