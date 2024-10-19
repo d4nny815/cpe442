@@ -18,7 +18,7 @@ uint8_t apply_sobel_gradient(uint8_t* neighbors);
 void get_neighbors(Mat& frame, int row, int col, uint8_t neighbors[9]);
 
 
-// Everything do deal with threading
+// Everything to deal with threading
 #define NUM_THREADS     (4)
 pthread_t threads[NUM_THREADS];
 typedef struct threadArgs_t {
@@ -62,7 +62,6 @@ int main(int argc, char** argv) {
 
         printf("FPS: %.2f\n", fps); 
 
-
         threadArgs_t threadArgs[NUM_THREADS];
         Mat grey_frame(frame.rows, frame.cols, CV_8UC1);
         Mat sobel_image(frame.rows, frame.cols, CV_8UC1);
@@ -79,14 +78,15 @@ int main(int argc, char** argv) {
         namedWindow("Sobel", WINDOW_NORMAL);
         resizeWindow("Sobel", WINDOW_LENGTH, WINDOW_HEIGHT);
         imshow("Sobel", sobel_image);
-        // imshow("Sobel", grey_frame);
 
         if (waitKey(1) == 27) break;
     }
     return 0;
 }
 
-
+/**
+ * @brief The function that each thread runs to convert an image to greyscale and apply the Sobel filter.
+ */
 void* thread_sobelfilter_func(void* threadArg) {
     threadArgs_t* args = (threadArgs_t*) threadArg;
     int partition_size = args->frame.rows / NUM_THREADS;
@@ -99,6 +99,13 @@ void* thread_sobelfilter_func(void* threadArg) {
 }
 
 
+/**
+ * @brief Converts an image to greyscale.
+ * @param frame The original color image.
+ * @param end_frame The resulting greyscale image.
+ * @param id The thread ID, used to determine the partition of the image to process.
+ * @param partition_size The size of the partition(image) to process.
+ */
 void to442_greyscale(Mat& frame, Mat& end_frame, int id, int partition_size) {
     int start_ind = id * partition_size;
     int end_ind = start_ind + partition_size;
@@ -112,6 +119,13 @@ void to442_greyscale(Mat& frame, Mat& end_frame, int id, int partition_size) {
 }
 
 
+/**
+ * @brief Applies the Sobel filter to a greyscale image.
+ * @param frame The original image.
+ * @param end_frame The resulting image after applying the Sobel filter.
+ * @param id The thread ID, used to determine the partition of the image to process.
+ * @param partition_size The size of the partition to process.
+ */
 void to442_sobel(Mat& frame, Mat& end_frame, int id, int partition_size) {
     int start_ind = id * partition_size;
     int end_ind = start_ind + partition_size;
@@ -133,6 +147,11 @@ void to442_sobel(Mat& frame, Mat& end_frame, int id, int partition_size) {
 }
 
 
+/**
+ * @brief Converts a pixel to greyscale.
+ * @param pixel The pixel to convert.
+ * @return The greyscale value of the pixel.
+ */
 uint8_t convert_pixel_to_greyscale(Vec3b pixel) {
     // CCIR 601 
     // Y = .299 * R + .587 * G + .114 * B
@@ -140,6 +159,11 @@ uint8_t convert_pixel_to_greyscale(Vec3b pixel) {
 }
 
 
+/**
+ * @brief Applies the Sobel filter to a 3x3 matrix of pixels.
+ * @param neighbors The 3x3 matrix of pixels.
+ * @return The gradient value of the pixel.
+ */
 uint8_t apply_sobel_gradient(uint8_t* neighbors) {
     const int8_t Gx_matrix[3][3] = {
         {-1, 0, 1},
@@ -168,6 +192,14 @@ uint8_t apply_sobel_gradient(uint8_t* neighbors) {
     return G > 255 ? 255 : G;
 }
 
+
+/**
+ * @brief Gets the 3x3 matrix of pixels surrounding a pixel.
+ * @param frame The image.
+ * @param row The row of the pixel.
+ * @param col The column of the pixel.
+ * @param neighbors The 3x3 matrix of pixels to fill.
+ */
 void get_neighbors(Mat& frame, int row, int col, uint8_t neighbors[9]) {
     uint8_t* frame_data = frame.ptr<uint8_t>();
     int cols = frame.cols;
