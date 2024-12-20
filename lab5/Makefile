@@ -6,10 +6,17 @@ OPENCV_FLAGS = `pkg-config --cflags --libs opencv4`
 
 LD_FLAGS = -L/usr/local/lib
 
-all: sobel_filter_video
+RT_FPS_OPTS = -DRT_FPS
 
-sobel_filter_video: sobel_filter_video.cpp
-	$(CC) $(CFLAGS) $(LD_FLAGS) -o $@ $< $(OPENCV_FLAGS)
+SRC = sobel_filter_video
+
+all: $(SRC)
+
+$(SRC): $(SRC).cpp
+	$(CC) $(CFLAGS) -o $(SRC) $< $(OPENCV_FLAGS)
+
+rtfps: $(SRC).cpp
+	$(CC) $(CFLAGS) $(RT_FPS_OPTS) -o $(SRC) $< $(OPENCV_FLAGS)
 
 test: test.cpp
 	$(CC) $(CFLAGS) $(LD_FLAGS) -o $@ $< $(OPENCV_FLAGS)

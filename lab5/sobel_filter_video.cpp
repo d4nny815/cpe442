@@ -1,6 +1,7 @@
 #include <opencv2/opencv.hpp>
 #include <stdio.h>
 #include <pthread.h>
+#include <chrono>
 
 #define ARG_LEN         (2)
 #define WINDOW_LENGTH   (720)
@@ -44,8 +45,16 @@ int main(int argc, char** argv) {
     }
 
     pthread_barrier_init(&barrier, NULL, NUM_THREADS);
+    
+    // real time fps
+    #ifdef RT_FPS 
     double fps = 0.0;
     double prev_tick = cv::getTickCount();
+    #endif
+    
+    // avg fps
+    size_t frame_count = 0;
+    auto start = std::chrono::high_resolution_clock::now();
 
     while (1) {
         Mat frame;
@@ -55,12 +64,15 @@ int main(int argc, char** argv) {
             break;
         }
 
+        #ifdef RT_FPS 
         double current_tick = cv::getTickCount();
         double time_elapsed = (current_tick - prev_tick) / cv::getTickFrequency();
         prev_tick = current_tick;
         fps = 1.0 / time_elapsed;
-
         printf("FPS: %.2f\n", fps); 
+        #endif
+        frame_count++;
+
 
         threadArgs_t threadArgs[NUM_THREADS];
         Mat grey_frame(frame.rows, frame.cols, CV_8UC1);
@@ -81,6 +93,13 @@ int main(int argc, char** argv) {
 
         if (waitKey(1) == 27) break;
     }
+
+    auto end = std::chrono::high_resolution_clock::now();
+    auto time_elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
+    double avg_fps = frame_count * 1000.0 / time_elapsed;
+
+    printf("avg fps: %f\n", avg_fps);
+
     return 0;
 }
 

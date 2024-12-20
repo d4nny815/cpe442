@@ -4,10 +4,17 @@ CFLAGS = -Wall -O0 -Werror -g
 
 OPENCV_FLAGS = `pkg-config --cflags --libs opencv4`
 
-all: sobel_filter_video
+RT_FPS_OPTS = -DRT_FPS
 
-sobel_filter_video: sobel_filter_video.cpp
-	$(CC) $(CFLAGS) -o $@ $< $(OPENCV_FLAGS)
+SRC = sobel_filter_video
+
+all: $(SRC)
+
+$(SRC): $(SRC).cpp
+	$(CC) $(CFLAGS) -o $(SRC) $< $(OPENCV_FLAGS)
+
+rtfps: $(SRC).cpp
+	$(CC) $(CFLAGS) $(RT_FPS_OPTS) -o $(SRC) $< $(OPENCV_FLAGS)
 
 clean:
 	rm -f sobel_filter_video
