@@ -178,11 +178,10 @@ uint8_t convert_pixel_to_greyscale(Vec3b pixel) {
 }
 
 
-// TODO: update comments
 /**
- * @brief Applies the Sobel filter to a 3x3 matrix of pixels.
- * @param neighbors The 3x3 matrix of pixels.
- * @return The gradient value of the pixel.
+ * @brief Applies the Sobel filter to a pixel.
+ * @param neighbors The neighbors of the pixel. Not including the pixel itself.
+ * @return The Sobel gradient of the pixel.
  */
 uint8_t apply_sobel_gradient(uint8_t* neighbors) {
     // Sobel gradient kernels
@@ -207,13 +206,14 @@ uint8_t apply_sobel_gradient(uint8_t* neighbors) {
     return (G > 255) ? 255 : G;
 }
 
-// TODO: update comments
 /**
- * @brief Gets the 3x3 matrix of pixels surrounding a pixel.
+ * @brief Gets the neighbors of a pixel, not including the pixel itself. 
+ * @note The neighbors are stored in the following order: Top-left, Top-center, Top-right, Mid-left, Mid-right, Bottom-left, Bottom-center, Bottom-right.
  * @param frame The image.
  * @param row The row of the pixel.
  * @param col The column of the pixel.
- * @param neighbors The 3x3 matrix of pixels to fill.
+ * @param neighbors The array to store the neighbors.
+ * @return void
  */
 void get_neighbors(Mat& frame, int row, int col, uint8_t neighbors[8]) {
     uint8_t* frame_data = frame.ptr<uint8_t>();
