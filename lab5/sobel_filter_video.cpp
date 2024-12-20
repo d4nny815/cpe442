@@ -185,17 +185,15 @@ uint8_t convert_pixel_to_greyscale(Vec3b pixel) {
  */
 uint8_t apply_sobel_gradient(uint8_t* neighbors) {
     // Sobel gradient kernels
-    const int8_t Gx_matrix[8] = {-1, 0, 1, -2, 2, -1, 0, 1};
-    const int8_t Gy_matrix[8] = {1, 2, 1, 0, 0, -1, -2, -1};
+    const int8x8_t Gx_matrix = {-1, 0, 1, -2, 2, -1, 0, 1};
+    const int8x8_t Gy_matrix = {1, 2, 1, 0, 0, -1, -2, -1};
 
     // convert to vectors
-    static int8x8_t Gx_mat = vld1_s8(Gx_matrix);
-    static int8x8_t Gy_mat = vld1_s8(Gy_matrix);
     int8x8_t neighbors_vec = vreinterpret_s8_u8(vld1_u8(neighbors));
 
     // MAC
-    int8x8_t Gx_accum = vmul_s8(neighbors_vec, Gx_mat);
-    int8x8_t Gy_accum = vmul_s8(neighbors_vec, Gy_mat);
+    int8x8_t Gx_accum = vmul_s8(neighbors_vec, Gx_matrix);
+    int8x8_t Gy_accum = vmul_s8(neighbors_vec, Gy_matrix);
     
     // reduce to scalar
     int16_t Gx = vaddlv_s8(Gx_accum);

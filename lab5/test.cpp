@@ -38,10 +38,10 @@ int main(void) {
     // resizeWindow("Difference", WINDOW_LENGTH, WINDOW_HEIGHT);
     // imshow("Difference", diff);
 
-    namedWindow("Difference1", WINDOW_NORMAL);
-    resizeWindow("Difference1", WINDOW_LENGTH, WINDOW_HEIGHT);
-    imshow("Difference1", vec);
-    waitKey(0);
+    // namedWindow("Difference1", WINDOW_NORMAL);
+    // resizeWindow("Difference1", WINDOW_LENGTH, WINDOW_HEIGHT);
+    // imshow("Difference1", vec);
+    // waitKey(0);
 
 
     Mat gray_diff;
@@ -228,16 +228,14 @@ Mat naive_sobel2(Mat& img) {
 // =================================================================================
 
 uint8_t apply_sobel_vec(uint8_t* neighbors) {
-    const int8_t Gx_matrix[8] = {-1, 0, 1, -2, 2, -1, 0, 1};
-    const int8_t Gy_matrix[8] = {1, 2, 1, 0, 0, -1, -2, -1};
+    const int8x8_t Gx_matrix = {-1, 0, 1, -2, 2, -1, 0, 1};
+    const int8x8_t Gy_matrix = {1, 2, 1, 0, 0, -1, -2, -1};
     
-    static int8x8_t Gx_mat = vld1_s8(Gx_matrix);
-    static int8x8_t Gy_mat = vld1_s8(Gy_matrix);
     int8x8_t neighbors_vec = vreinterpret_s8_u8(vld1_u8(neighbors));
 
     // MAC
-    int8x8_t Gx_accum = vmul_s8(neighbors_vec, Gx_mat);
-    int8x8_t Gy_accum = vmul_s8(neighbors_vec, Gy_mat);
+    int8x8_t Gx_accum = vmul_s8(neighbors_vec, Gx_matrix);
+    int8x8_t Gy_accum = vmul_s8(neighbors_vec, Gy_matrix);
     
     // reduce to scalar
     int16_t Gx = vaddlv_s8(Gx_accum);
