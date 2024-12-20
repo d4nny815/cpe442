@@ -159,40 +159,36 @@ uint8_t convert_pixel_to_greyscale(Vec3b pixel) {
 }
 
 
+// TODO: update comments
 /**
  * @brief Applies the Sobel filter to a 3x3 matrix of pixels.
  * @param neighbors The 3x3 matrix of pixels.
  * @return The gradient value of the pixel.
  */
 uint8_t apply_sobel_gradient(uint8_t* neighbors) {
-    const int8_t Gx_matrix[3][3] = {
-        {-1, 0, 1},
-        {-2, 0, 2},
-        {-1, 0, 1}
-    };
+    // Sobel gradient kernels
+    const int8_t Gx_matrix[8] = {-1, 0, 1, -2, 2, -1, 0, 1};
+    const int8_t Gy_matrix[8] = {1, 2, 1, 0, 0, -1, -2, -1};
 
-    const int8_t Gy_matrix[3][3] = {
-        { 1,  2,  1},
-        { 0,  0,  0},
-        {-1, -2, -1}
-    };
+    // convert to vectors
+    static int8x8_t Gx_mat = vld1_s8(Gx_matrix);
+    static int8x8_t Gy_mat = vld1_s8(Gy_matrix);
+    int8x8_t neighbors_vec = vreinterpret_s8_u8(vld1_u8(neighbors));
 
-    int16_t Gx = 0;
-    int16_t Gy = 0;
-
-    for (int row = 0; row < 3; row++) {
-        for (int col = 0; col < 3; col++) {
-            uint8_t pixel_value = neighbors[row * 3 + col];
-            Gx += pixel_value * Gx_matrix[row][col];
-            Gy += pixel_value * Gy_matrix[row][col];
-        }
-    }
+    // MAC
+    int8x8_t Gx_accum = vmul_s8(neighbors_vec, Gx_mat);
+    int8x8_t Gy_accum = vmul_s8(neighbors_vec, Gy_mat);
+    
+    // reduce to scalar
+    int16_t Gx = vaddlv_s8(Gx_accum);
+    int16_t Gy = vaddlv_s8(Gy_accum);
 
     int16_t G = std::abs(Gx) + std::abs(Gy);
-    return G > 255 ? 255 : G;
+
+    return (G > 255) ? 255 : G;
 }
 
-
+// TODO: update comments
 /**
  * @brief Gets the 3x3 matrix of pixels surrounding a pixel.
  * @param frame The image.
@@ -200,7 +196,7 @@ uint8_t apply_sobel_gradient(uint8_t* neighbors) {
  * @param col The column of the pixel.
  * @param neighbors The 3x3 matrix of pixels to fill.
  */
-void get_neighbors(Mat& frame, int row, int col, uint8_t neighbors[9]) {
+void get_neighbors(Mat& frame, int row, int col, uint8_t neighbors[8]) {
     uint8_t* frame_data = frame.ptr<uint8_t>();
     int cols = frame.cols;
     int idx = row * cols + col;
@@ -209,9 +205,8 @@ void get_neighbors(Mat& frame, int row, int col, uint8_t neighbors[9]) {
     neighbors[1] = frame_data[idx - cols];     // top-center
     neighbors[2] = frame_data[idx - cols + 1]; // top-right
     neighbors[3] = frame_data[idx - 1];        // mid-left
-    neighbors[4] = frame_data[idx];            // cur pixel
-    neighbors[5] = frame_data[idx + 1];        // mid-right
-    neighbors[6] = frame_data[idx + cols - 1]; // bottom-left
-    neighbors[7] = frame_data[idx + cols];     // bottom-center
-    neighbors[8] = frame_data[idx + cols + 1]; // bottom-right
+    neighbors[4] = frame_data[idx + 1];        // mid-right
+    neighbors[5] = frame_data[idx + cols - 1]; // bottom-left
+    neighbors[6] = frame_data[idx + cols];     // bottom-center
+    neighbors[7] = frame_data[idx + cols + 1]; // bottom-right
 }

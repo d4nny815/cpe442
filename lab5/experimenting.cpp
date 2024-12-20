@@ -33,7 +33,9 @@ int main(int argc, char** argv) {
 
     // display
     for (int i = 0; i < SIZE; i++) {
-        printf("%u + %u = %u = %u\n", arr1[i], arr2[i], arr3[i], arrv[i]);
+        if (arr3[i] != arrv[i]) {
+            printf("i = %d  %u != %u\n", i, arr3[i], arrv[i]);
+        } 
     }
 
     return 0;
