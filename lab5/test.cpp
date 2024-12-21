@@ -5,10 +5,12 @@ using namespace cv;
 #define WINDOW_LENGTH   (720)
 #define WINDOW_HEIGHT   (480)
 #define TEST_FILE ("../pics/lion.bmp")
+#define IMG_TOLERANCE   (5.0)
 
 Mat naive_sobel(Mat& img);
 Mat naive_sobel2(Mat& img);
 Mat vector_sobel(Mat& img);
+int same_images(const Mat& img1, const Mat& img2);
 
 
 int main(void) {
@@ -19,64 +21,143 @@ int main(void) {
         return 1;
     }
 
-    // Mat naive = naive_sobel(img);
-    // Mat naive2 = naive_sobel2(img);
-    Mat naive = naive_sobel2(img);
+    Mat naive = naive_sobel(img);
+    Mat naive2 = naive_sobel2(img);
     Mat vec = vector_sobel(img);
 
 
-    // Compare the images
-    if (naive.size() != vec.size() || naive.type() != vec.type()) {
-        fprintf(stderr, "Images are not identical (different sizes or types).");
-        exit(1);
-    }
-    
-    Mat diff;
-    absdiff(naive, vec, diff);
-
-    // namedWindow("Difference", WINDOW_NORMAL);
-    // resizeWindow("Difference", WINDOW_LENGTH, WINDOW_HEIGHT);
-    // imshow("Difference", diff);
-
-    // namedWindow("Difference1", WINDOW_NORMAL);
-    // resizeWindow("Difference1", WINDOW_LENGTH, WINDOW_HEIGHT);
-    // imshow("Difference1", vec);
-    // waitKey(0);
-
-
-    Mat gray_diff;
-    if (diff.channels() > 1)
-        cvtColor(diff, gray_diff, COLOR_BGR2GRAY);
-    else
-        gray_diff = diff;
-
-    // Find the maximum difference
-    double max_diff = norm(gray_diff, NORM_INF);
-
-    if (max_diff != 0) {
-        fprintf(stderr, "Images are not identical!\n");
+    if (!same_images(naive2, vec)) {
+        fprintf(stderr, "Error: Images are not identical! Greater than Tolerance\n");
         exit(1);
     }
 
-    printf("Images are the same\n");
+    printf("Images are identical\n");
 
-    return 0;
+    exit(0);
 }
 
 
-Mat to442_greyscale(Mat& frame) {
+int same_images(const Mat& img1, const Mat& img2) {
+    if (img1.size() != img2.size() || img1.type() != img2.type()) {
+        fprintf(stderr, "Error: Images are not identical (different sizes or types).\n");
+        return 1;
+    }
+
+    Mat diff;
+    absdiff(img1, img2, diff);
+
+    double max_diff = norm(diff, NORM_INF);
+
+    if (max_diff > IMG_TOLERANCE) {
+        return 0;
+    }
+
+    return 1;
+}
+
+#define RED_WEIGHT  (.299)
+#define GREEN_WEIGHT  (.587)
+#define BLUE_WEIGHT  (.114)
+uint8_t greyscale_weights(uint8_t* pixel) {
+    return RED_WEIGHT * pixel[2] + GREEN_WEIGHT * pixel[1] + BLUE_WEIGHT * pixel[0];
+}
+
+Mat to_greyscale_naive(Mat& frame) {
+    Mat greyscale(frame.rows, frame.cols, CV_8UC1);
+    
+    for (int row = 0; row < frame.rows; row++) {
+        uint8_t* frame_row = frame.ptr<uint8_t>(row); // will be 3 times greater than grey
+        uint8_t* grey_row = greyscale.ptr<uint8_t>(row);
+
+        for (int col = 0; col <frame.cols; col ++) {
+            grey_row[col] = greyscale_weights(&frame_row[col * 3]); 
+        }
+
+    }
+
+    return greyscale;
+}
+
+
+#define ROUNDDOWN_16(x) ((x&(~0xf)))
+Mat to_greyscale_vec(Mat& frame) {
     Mat greyscale(frame.rows, frame.cols, CV_8UC1);
 
     for (int row = 0; row < frame.rows; row++) {
-        for (int col = 0; col < frame.cols; col++) {
-            Vec3b pixel = frame.at<Vec3b>(row, col);
-            greyscale.at<uint8_t>(row, col) = 
-                .299 * pixel[2] + .587 * pixel[1] + .114 * pixel[0];
+        uint8_t* frame_row = frame.ptr<uint8_t>(row); // will be 3 times greater than grey
+        uint8_t* grey_row = greyscale.ptr<uint8_t>(row);
+
+        // cant assume cols will be divisible by 16
+        int col;
+        for (col = 0; col < ROUNDDOWN_16(frame.cols); col ++) {   
+            // load 16 3-elem vectors of type u8
+            // loads 48 Bytes
+            uint8x16x3_t bgr = vld3q_u8(frame_row + col * 3);
+
+            // convert to color vectors
+            // blue, green, red vectors (float32 x 4)
+            
+            const float32x4_t red_weights = vdupq_n_f32(RED_WEIGHT);
+            const float32x4_t green_weights = vdupq_n_f32(GREEN_WEIGHT);
+            const float32x4_t blue_weights = vdupq_n_f32(BLUE_WEIGHT);
+            int i;
+
+            uint32x4_t blues_u32[4], greens_u32[4], reds_u32[4];
+            for (i = 0; i < 4; i++) {
+                
+                blues_u32[i] = vmovl_u16(vget_low_u16(vmovl_u8(vget_low_u8(bgr.val[0]))));
+                greens_u32[i] = vmovl_u16(vget_low_u16(vmovl_u8(vget_low_u8(bgr.val[1]))));
+                reds_u32[i] = vmovl_u16(vget_low_u16(vmovl_u8(vget_low_u8(bgr.val[2]))));
+            }
+
+            float32x4_t blues_f32[4], greens_f32[4], reds_f32[4];
+            for (i = 0; i < 4; i++) {
+                blues_f32[i] = vcvtq_f32_u32(blues_u32[i]);
+                greens_f32[i] = vcvtq_f32_u32(greens_u32[i]);
+                reds_f32[i] = vcvtq_f32_u32(reds_u32[i]);
+            }
+
+            // compute greyscale vals
+            float32x4_t greys_f32[4];
+            for (i = 0; i < 4; i++) {
+                blues_f32[i] = vmulq_f32(blues_f32[i], blue_weights);
+                greens_f32[i] = vmulq_f32(greens_f32[i], green_weights);
+                reds_f32[i] = vmulq_f32(reds_f32[i], red_weights);
+
+                greys_f32[i] = vaddq_f32(vaddq_f32(blues_f32[i], greens_f32[i]), reds_f32[i]);
+            }
+
+            // store the greyscale vals
+            // 4 f32x4 -> 4 u32x4 -> 2 u16x8 -> 1 u8x16
+            uint32x4_t greys_u32[4];
+            for (i = 0; i < 4; i++) {
+                greys_u32[i] = vcvtq_u32_f32(greys_f32[i]);
+            }
+
+            uint16x8_t greys_u16[2];
+            for (i = 0; i < 2; i++) {
+                uint16x4_t low = vmovn_u32(greys_u32[2 * i]);
+                uint16x4_t high = vmovn_u32(greys_u32[2 * i + 1]);
+                greys_u16[i] = vcombine_u16(low, high);
+            }
+
+
+            uint8x8_t low = vmovn_u16(greys_u16[0]);  // Convert low part (16 values) to uint8x8
+            uint8x8_t high = vmovn_u16(greys_u16[1]);
+            uint8x16_t grey = vcombine_u8(low, high);
+
+            vst1q_u8(grey_row + col, grey);
+        }
+        // remaining cols
+        // for (col = 0; col < frame.cols; col++) {
+        for (; col < frame.cols; col++) {
+            grey_row[col] = greyscale_weights(&frame_row[col * 3]); 
         }
     }
 
     return greyscale;
 }
+
 
 // =================================================================================
 
@@ -144,7 +225,7 @@ Mat to_sobel_naive(Mat& frame) {
 
 
 Mat naive_sobel(Mat& img) {
-    Mat grey_image = to442_greyscale(img);
+    Mat grey_image = to_greyscale_naive(img);
     Mat sobel_image = to_sobel_naive(grey_image);
 
     return sobel_image;
@@ -175,30 +256,12 @@ uint8_t apply_sobel_naive2(uint8_t* neighbors) {
     int16_t Gx = 0;
     int16_t Gy = 0;
 
-    int8_t Gxs[8];
-    int8_t Gys[8];
-
     for (int i = 0; i < 8; ++i) {
-        Gxs[i] = neighbors[i] * Gx_matrix[i];
-        Gys[i] = neighbors[i] * Gy_matrix[i];
+        Gx += neighbors[i] * Gx_matrix[i];
+        Gy += neighbors[i] * Gy_matrix[i];
     }
-
-    for (int i = 0; i < 8; ++i) {
-        // printf("i = %d Gx = %hhd Gy = %hhd\n", i, Gxs[i], Gys[i]);
-        Gx += Gxs[i];
-        Gy += Gys[i];
-    }
-
-    // Compute Gx and Gy
-    // for (int i = 0; i < 8; ++i) {
-    //     printf("i = %d Gx = %hhd Gy = %hhd\n", i, Gx_matrix[i], Gy_matrix[i]);
-    //     Gx += neighbors[i] * Gx_matrix[i];
-    //     Gy += neighbors[i] * Gy_matrix[i];
-    // }
 
     int16_t G = std::abs(Gx) + std::abs(Gy);
-    // printf("Gx = %hhd Gy = %hhd G = %hhu \n",Gx, Gy, G);
-    // exit(1);
 
     return (G > 255) ? 255 : G;
 }
@@ -219,7 +282,7 @@ Mat to_sobel_naive2(Mat& frame) {
 
 
 Mat naive_sobel2(Mat& img) {
-    Mat grey_image = to442_greyscale(img);
+    Mat grey_image = to_greyscale_naive(img);
     Mat sobel_image = to_sobel_naive2(grey_image);
 
     return sobel_image;
@@ -261,9 +324,8 @@ Mat to_sobel_vec(Mat& frame) {
 }
 
 Mat vector_sobel(Mat& img) {
-    Mat grey_image = to442_greyscale(img);
+    Mat grey_image = to_greyscale_vec(img);
     Mat sobel_image = to_sobel_vec(grey_image);
 
     return sobel_image;
 }
-
