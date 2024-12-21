@@ -6,10 +6,9 @@
 #define ARG_LEN         (2)
 #define WINDOW_LENGTH   (720)
 #define WINDOW_HEIGHT   (480)
-#define RED_WEIGHT  (.299)
-#define GREEN_WEIGHT  (.587)
-#define BLUE_WEIGHT  (.114)
-#define ROUNDDOWN_16(x) ((x&(~0xf)))
+#define RED_WEIGHT      (.299)
+#define GREEN_WEIGHT    (.587)
+#define BLUE_WEIGHT     (.114)
 
 
 using namespace cv;
@@ -123,6 +122,7 @@ void* thread_sobelfilter_func(void* threadArg) {
 }
 
 
+#define STRIDE (8)
 /**
  * @brief Converts an image to greyscale.
  * @param frame The original color image.
@@ -134,85 +134,32 @@ void to442_greyscale(Mat& frame, Mat& end_frame, int id, int partition_size) {
     int start_ind = id * partition_size;
     int end_ind = start_ind + partition_size;
 
+    // fixed point representation q8.8
+    static uint8x8_t red_weights = vdup_n_u8(RED_WEIGHT * 256 + 1);
+    static uint8x8_t green_weights = vdup_n_u8(GREEN_WEIGHT * 256 + 1);
+    static uint8x8_t blue_weights = vdup_n_u8(BLUE_WEIGHT * 256 + 1);
+
     for (int row = start_ind; row < end_ind; row++) {
         uint8_t* frame_row = frame.ptr<uint8_t>(row);
         uint8_t* grey_row = end_frame.ptr<uint8_t>(row);
-        for (int col = 0; col < frame.cols; col++) {
-            grey_row[col] = greyscale_weights(&frame_row[col * 3]); 
+        
+        uint16x8_t grey_u16;  // q8.8x8 format
+        uint8x8_t grey_u8;
+
+        for (int col = 0; col < frame.cols; col += STRIDE) {
+            uint8x8x3_t bgr = vld3_u8(frame_row + col * 3);                        
+
+            // compute greyscale val 
+            grey_u16 = vmull_u8(bgr.val[0], red_weights);
+            grey_u16 = vmlal_u8(grey_u16, bgr.val[1], green_weights);
+            grey_u16 = vmlal_u8(grey_u16, bgr.val[2], blue_weights);
+
+            // get the integer part
+            grey_u8 = vshrn_n_u16(grey_u16, 8);
+
+            vst1_u8(grey_row + col, grey_u8);
         }
     }
-
-    // for (int row = start_ind; row < end_ind; row++) {
-    //     uint8_t* frame_row = frame.ptr<uint8_t>(row); // will be 3 times greater than grey
-    //     uint8_t* grey_row = end_frame.ptr<uint8_t>(row);
-
-    //     // cant assume cols will be divisible by 16
-    //     int col;
-    //     for (col = 0; col < ROUNDDOWN_16(frame.cols); col ++) {   
-    //         // load 16 3-elem vectors of type u8
-    //         // loads 48 Bytes
-    //         uint8x16x3_t bgr = vld3q_u8(frame_row + col * 3);
-
-    //         // convert to color vectors
-    //         // blue, green, red vectors (float32 x 4)
-            
-    //         const float32x4_t red_weights = vdupq_n_f32(RED_WEIGHT);
-    //         const float32x4_t green_weights = vdupq_n_f32(GREEN_WEIGHT);
-    //         const float32x4_t blue_weights = vdupq_n_f32(BLUE_WEIGHT);
-    //         int i;
-
-    //         uint32x4_t blues_u32[4], greens_u32[4], reds_u32[4];
-    //         for (i = 0; i < 4; i++) {
-                
-    //             blues_u32[i] = vmovl_u16(vget_low_u16(vmovl_u8(vget_low_u8(bgr.val[0]))));
-    //             greens_u32[i] = vmovl_u16(vget_low_u16(vmovl_u8(vget_low_u8(bgr.val[1]))));
-    //             reds_u32[i] = vmovl_u16(vget_low_u16(vmovl_u8(vget_low_u8(bgr.val[2]))));
-    //         }
-
-    //         float32x4_t blues_f32[4], greens_f32[4], reds_f32[4];
-    //         for (i = 0; i < 4; i++) {
-    //             blues_f32[i] = vcvtq_f32_u32(blues_u32[i]);
-    //             greens_f32[i] = vcvtq_f32_u32(greens_u32[i]);
-    //             reds_f32[i] = vcvtq_f32_u32(reds_u32[i]);
-    //         }
-
-    //         // compute greyscale vals
-    //         float32x4_t greys_f32[4];
-    //         for (i = 0; i < 4; i++) {
-    //             blues_f32[i] = vmulq_f32(blues_f32[i], blue_weights);
-    //             greens_f32[i] = vmulq_f32(greens_f32[i], green_weights);
-    //             reds_f32[i] = vmulq_f32(reds_f32[i], red_weights);
-
-    //             greys_f32[i] = vaddq_f32(vaddq_f32(blues_f32[i], greens_f32[i]), reds_f32[i]);
-    //         }
-
-    //         // store the greyscale vals
-    //         // 4 f32x4 -> 4 u32x4 -> 2 u16x8 -> 1 u8x16
-    //         uint32x4_t greys_u32[4];
-    //         for (i = 0; i < 4; i++) {
-    //             greys_u32[i] = vcvtq_u32_f32(greys_f32[i]);
-    //         }
-
-    //         uint16x8_t greys_u16[2];
-    //         for (i = 0; i < 2; i++) {
-    //             uint16x4_t low = vmovn_u32(greys_u32[2 * i]);
-    //             uint16x4_t high = vmovn_u32(greys_u32[2 * i + 1]);
-    //             greys_u16[i] = vcombine_u16(low, high);
-    //         }
-
-
-    //         uint8x8_t low = vmovn_u16(greys_u16[0]);  // Convert low part (16 values) to uint8x8
-    //         uint8x8_t high = vmovn_u16(greys_u16[1]);
-    //         uint8x16_t grey = vcombine_u8(low, high);
-
-    //         vst1q_u8(grey_row + col, grey);
-    //     }
-    //     // remaining cols
-    //     // for (col = 0; col < frame.cols; col++) {
-    //     for (; col < frame.cols; col++) {
-    //         grey_row[col] = greyscale_weights(&frame_row[col * 3]); 
-    //     }
-    // }
 
     return;
 }
@@ -251,7 +198,7 @@ void to442_sobel(Mat& frame, Mat& end_frame, int id, int partition_size) {
  * @param pixel The pixel to convert.
  * @return The greyscale value of the pixel.
  */
-uint8_t greyscale_weights(uint8_t* pixel) {
+inline uint8_t greyscale_weights(uint8_t* pixel) {
     return RED_WEIGHT * pixel[2] + GREEN_WEIGHT * pixel[1] + BLUE_WEIGHT * pixel[0];
 }
 
