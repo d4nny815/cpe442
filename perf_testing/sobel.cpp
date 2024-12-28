@@ -14,6 +14,7 @@ void to442_greyscale(Mat& frame, Mat& end_frame, int id, size_t partition_size) 
 
 
 #ifdef VEC_GREY_FLOAT
+    #define STRIDE  (16)
     #define ROUNDDOWN_16(x) ((x&(~0xf)))
     for (int row = start_ind; row < end_ind; row++) {
         uint8_t* frame_row = frame.ptr<uint8_t>(row); // will be 3 times greater than grey
@@ -21,10 +22,10 @@ void to442_greyscale(Mat& frame, Mat& end_frame, int id, size_t partition_size) 
 
         // cant assume cols will be divisible by 16 480 yes 1080 no
         int col;
-        for (col = 0; col < ROUNDDOWN_16(frame.cols); col ++) {   
+        for (col = 0; col < ROUNDDOWN_16(frame.cols); col += STRIDE) {   
             // load 16 3-elem vectors of type u8
             // loads 48 Bytes
-            uint8x16x3_t bgr = vld3q_u8(frame_row + col * 3);
+            uint8x16x3_t bgr = vld3q_u8(frame_row + col * BYTES_PER_PIXEL);
             
             static float32x4_t red_weights = vdupq_n_f32(RED_WEIGHT);
             static float32x4_t green_weights = vdupq_n_f32(GREEN_WEIGHT);
@@ -34,12 +35,20 @@ void to442_greyscale(Mat& frame, Mat& end_frame, int id, size_t partition_size) 
             float32x4_t blues_f32[4], greens_f32[4], reds_f32[4];
 
             // convert everything to floating vectors
-            // ? there has to be a better way
-            for (i = 0; i < 4; i++) {
-                blues_f32[i] = vcvtq_f32_u32(vmovl_u16(vget_low_u16(vmovl_u8(vget_low_u8(bgr.val[0])))));
-                greens_f32[i] = vcvtq_f32_u32(vmovl_u16(vget_low_u16(vmovl_u8(vget_low_u8(bgr.val[1])))));
-                reds_f32[i] = vcvtq_f32_u32(vmovl_u16(vget_low_u16(vmovl_u8(vget_low_u8(bgr.val[2])))));
-            }
+            blues_f32[0] = vcvtq_f32_u32(vmovl_u16(vget_low_u16(vmovl_u8(vget_low_u8(bgr.val[0])))));
+            blues_f32[1] = vcvtq_f32_u32(vmovl_u16(vget_high_u16(vmovl_u8(vget_low_u8(bgr.val[0])))));
+            blues_f32[2] = vcvtq_f32_u32(vmovl_u16(vget_low_u16(vmovl_u8(vget_high_u8(bgr.val[0])))));
+            blues_f32[3] = vcvtq_f32_u32(vmovl_u16(vget_high_u16(vmovl_u8(vget_high_u8(bgr.val[0])))));
+
+            greens_f32[0] = vcvtq_f32_u32(vmovl_u16(vget_low_u16(vmovl_u8(vget_low_u8(bgr.val[1])))));
+            greens_f32[1] = vcvtq_f32_u32(vmovl_u16(vget_high_u16(vmovl_u8(vget_low_u8(bgr.val[1])))));
+            greens_f32[2] = vcvtq_f32_u32(vmovl_u16(vget_low_u16(vmovl_u8(vget_high_u8(bgr.val[1])))));
+            greens_f32[3] = vcvtq_f32_u32(vmovl_u16(vget_high_u16(vmovl_u8(vget_high_u8(bgr.val[1])))));
+
+            reds_f32[0] = vcvtq_f32_u32(vmovl_u16(vget_low_u16(vmovl_u8(vget_low_u8(bgr.val[2])))));
+            reds_f32[1] = vcvtq_f32_u32(vmovl_u16(vget_high_u16(vmovl_u8(vget_low_u8(bgr.val[2])))));
+            reds_f32[2] = vcvtq_f32_u32(vmovl_u16(vget_low_u16(vmovl_u8(vget_high_u8(bgr.val[2])))));
+            reds_f32[3] = vcvtq_f32_u32(vmovl_u16(vget_high_u16(vmovl_u8(vget_high_u8(bgr.val[2])))));
 
             // compute greyscale vals
             float32x4_t greys_f32[4];
@@ -83,9 +92,9 @@ void to442_greyscale(Mat& frame, Mat& end_frame, int id, size_t partition_size) 
     #define STRIDE  (8)
 
     // q8.8x8 format
-    static uint8x8_t red_weights = vdup_n_u8(RED_WEIGHT * 256 + 1);
-    static uint8x8_t green_weights = vdup_n_u8(GREEN_WEIGHT * 256 + 1);
-    static uint8x8_t blue_weights = vdup_n_u8(BLUE_WEIGHT * 256 + 1);
+    static uint8x8_t red_weights = vdup_n_u8(RED_WEIGHT * MAX_8BIT + 1);
+    static uint8x8_t green_weights = vdup_n_u8(GREEN_WEIGHT * MAX_8BIT + 1);
+    static uint8x8_t blue_weights = vdup_n_u8(BLUE_WEIGHT * MAX_8BIT + 1);
 
     for (int row = start_ind; row < end_ind; row++) {
         uint8_t* frame_row = frame.ptr<uint8_t>(row);

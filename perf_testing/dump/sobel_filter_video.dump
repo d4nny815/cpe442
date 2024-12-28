@@ -1,0 +1,1937 @@
+
+sobel_filter_video:     file format elf64-littleaarch64
+
+
+Disassembly of section .init:
+
+0000000000001260 <_init>:
+    1260:	d503201f 	nop
+    1264:	a9bf7bfd 	stp	x29, x30, [sp, #-16]!
+    1268:	910003fd 	mov	x29, sp
+    126c:	940000b2 	bl	1534 <call_weak_fn>
+    1270:	a8c17bfd 	ldp	x29, x30, [sp], #16
+    1274:	d65f03c0 	ret
+
+Disassembly of section .plt:
+
+0000000000001280 <.plt>:
+    1280:	a9bf7bf0 	stp	x16, x30, [sp, #-16]!
+    1284:	d00000f0 	adrp	x16, 1f000 <__FRAME_END__+0x1c098>
+    1288:	f947fe11 	ldr	x17, [x16, #4088]
+    128c:	913fe210 	add	x16, x16, #0xff8
+    1290:	d61f0220 	br	x17
+    1294:	d503201f 	nop
+    1298:	d503201f 	nop
+    129c:	d503201f 	nop
+
+00000000000012a0 <_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE@plt>:
+    12a0:	f00000f0 	adrp	x16, 20000 <_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE@Base>
+    12a4:	f9400211 	ldr	x17, [x16]
+    12a8:	91000210 	add	x16, x16, #0x0
+    12ac:	d61f0220 	br	x17
+
+00000000000012b0 <_ZN2cv3MatC1Ev@plt>:
+    12b0:	f00000f0 	adrp	x16, 20000 <_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE@Base>
+    12b4:	f9400611 	ldr	x17, [x16, #8]
+    12b8:	91002210 	add	x16, x16, #0x8
+    12bc:	d61f0220 	br	x17
+
+00000000000012c0 <_ZN2cv3MataSEOS0_@plt>:
+    12c0:	f00000f0 	adrp	x16, 20000 <_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE@Base>
+    12c4:	f9400a11 	ldr	x17, [x16, #16]
+    12c8:	91004210 	add	x16, x16, #0x10
+    12cc:	d61f0220 	br	x17
+
+00000000000012d0 <_ZN2cv3MatD1Ev@plt>:
+    12d0:	f00000f0 	adrp	x16, 20000 <_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE@Base>
+    12d4:	f9400e11 	ldr	x17, [x16, #24]
+    12d8:	91006210 	add	x16, x16, #0x18
+    12dc:	d61f0220 	br	x17
+
+00000000000012e0 <pthread_barrier_wait@plt>:
+    12e0:	f00000f0 	adrp	x16, 20000 <_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE@Base>
+    12e4:	f9401211 	ldr	x17, [x16, #32]
+    12e8:	91008210 	add	x16, x16, #0x20
+    12ec:	d61f0220 	br	x17
+
+00000000000012f0 <puts@plt>:
+    12f0:	f00000f0 	adrp	x16, 20000 <_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE@Base>
+    12f4:	f9401611 	ldr	x17, [x16, #40]
+    12f8:	9100a210 	add	x16, x16, #0x28
+    12fc:	d61f0220 	br	x17
+
+0000000000001300 <_ZNK2cv12VideoCapture8isOpenedEv@plt>:
+    1300:	f00000f0 	adrp	x16, 20000 <_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE@Base>
+    1304:	f9401a11 	ldr	x17, [x16, #48]
+    1308:	9100c210 	add	x16, x16, #0x30
+    130c:	d61f0220 	br	x17
+
+0000000000001310 <_ZNK2cv12VideoCapture3getEi@plt>:
+    1310:	f00000f0 	adrp	x16, 20000 <_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE@Base>
+    1314:	f9401e11 	ldr	x17, [x16, #56]
+    1318:	9100e210 	add	x16, x16, #0x38
+    131c:	d61f0220 	br	x17
+
+0000000000001320 <_ZNSaIcEC1Ev@plt>:
+    1320:	f00000f0 	adrp	x16, 20000 <_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE@Base>
+    1324:	f9402211 	ldr	x17, [x16, #64]
+    1328:	91010210 	add	x16, x16, #0x40
+    132c:	d61f0220 	br	x17
+
+0000000000001330 <pthread_create@plt>:
+    1330:	f00000f0 	adrp	x16, 20000 <_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE@Base>
+    1334:	f9402611 	ldr	x17, [x16, #72]
+    1338:	91012210 	add	x16, x16, #0x48
+    133c:	d61f0220 	br	x17
+
+0000000000001340 <__libc_start_main@plt>:
+    1340:	f00000f0 	adrp	x16, 20000 <_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE@Base>
+    1344:	f9402a11 	ldr	x17, [x16, #80]
+    1348:	91014210 	add	x16, x16, #0x50
+    134c:	d61f0220 	br	x17
+
+0000000000001350 <pthread_barrier_init@plt>:
+    1350:	f00000f0 	adrp	x16, 20000 <_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE@Base>
+    1354:	f9402e11 	ldr	x17, [x16, #88]
+    1358:	91016210 	add	x16, x16, #0x58
+    135c:	d61f0220 	br	x17
+
+0000000000001360 <__cxa_guard_acquire@plt>:
+    1360:	f00000f0 	adrp	x16, 20000 <_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE@Base>
+    1364:	f9403211 	ldr	x17, [x16, #96]
+    1368:	91018210 	add	x16, x16, #0x60
+    136c:	d61f0220 	br	x17
+
+0000000000001370 <__gmon_start__@plt>:
+    1370:	f00000f0 	adrp	x16, 20000 <_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE@Base>
+    1374:	f9403611 	ldr	x17, [x16, #104]
+    1378:	9101a210 	add	x16, x16, #0x68
+    137c:	d61f0220 	br	x17
+
+0000000000001380 <printf@plt>:
+    1380:	f00000f0 	adrp	x16, 20000 <_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE@Base>
+    1384:	f9403a11 	ldr	x17, [x16, #112]
+    1388:	9101c210 	add	x16, x16, #0x70
+    138c:	d61f0220 	br	x17
+
+0000000000001390 <__gxx_personality_v0@plt>:
+    1390:	f00000f0 	adrp	x16, 20000 <_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE@Base>
+    1394:	f9403e11 	ldr	x17, [x16, #120]
+    1398:	9101e210 	add	x16, x16, #0x78
+    139c:	d61f0220 	br	x17
+
+00000000000013a0 <_ZNSt6chrono3_V212system_clock3nowEv@plt>:
+    13a0:	f00000f0 	adrp	x16, 20000 <_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE@Base>
+    13a4:	f9404211 	ldr	x17, [x16, #128]
+    13a8:	91020210 	add	x16, x16, #0x80
+    13ac:	d61f0220 	br	x17
+
+00000000000013b0 <__cxa_finalize@plt>:
+    13b0:	f00000f0 	adrp	x16, 20000 <_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE@Base>
+    13b4:	f9404611 	ldr	x17, [x16, #136]
+    13b8:	91022210 	add	x16, x16, #0x88
+    13bc:	d61f0220 	br	x17
+
+00000000000013c0 <_ZN2cv12VideoCaptureD1Ev@plt>:
+    13c0:	f00000f0 	adrp	x16, 20000 <_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE@Base>
+    13c4:	f9404a11 	ldr	x17, [x16, #144]
+    13c8:	91024210 	add	x16, x16, #0x90
+    13cc:	d61f0220 	br	x17
+
+00000000000013d0 <_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev@plt>:
+    13d0:	f00000f0 	adrp	x16, 20000 <_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE@Base>
+    13d4:	f9404e11 	ldr	x17, [x16, #152]
+    13d8:	91026210 	add	x16, x16, #0x98
+    13dc:	d61f0220 	br	x17
+
+00000000000013e0 <_ZN2cv11namedWindowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi@plt>:
+    13e0:	f00000f0 	adrp	x16, 20000 <_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE@Base>
+    13e4:	f9405211 	ldr	x17, [x16, #160]
+    13e8:	91028210 	add	x16, x16, #0xa0
+    13ec:	d61f0220 	br	x17
+
+00000000000013f0 <pthread_exit@plt>:
+    13f0:	f00000f0 	adrp	x16, 20000 <_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE@Base>
+    13f4:	f9405611 	ldr	x17, [x16, #168]
+    13f8:	9102a210 	add	x16, x16, #0xa8
+    13fc:	d61f0220 	br	x17
+
+0000000000001400 <_ZN2cv3MatC1ERKS0_@plt>:
+    1400:	f00000f0 	adrp	x16, 20000 <_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE@Base>
+    1404:	f9405a11 	ldr	x17, [x16, #176]
+    1408:	9102c210 	add	x16, x16, #0xb0
+    140c:	d61f0220 	br	x17
+
+0000000000001410 <pthread_join@plt>:
+    1410:	f00000f0 	adrp	x16, 20000 <_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE@Base>
+    1414:	f9405e11 	ldr	x17, [x16, #184]
+    1418:	9102e210 	add	x16, x16, #0xb8
+    141c:	d61f0220 	br	x17
+
+0000000000001420 <_ZN2cv12VideoCaptureC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi@plt>:
+    1420:	f00000f0 	adrp	x16, 20000 <_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE@Base>
+    1424:	f9406211 	ldr	x17, [x16, #192]
+    1428:	91030210 	add	x16, x16, #0xc0
+    142c:	d61f0220 	br	x17
+
+0000000000001430 <_Unwind_Resume@plt>:
+    1430:	f00000f0 	adrp	x16, 20000 <_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE@Base>
+    1434:	f9406611 	ldr	x17, [x16, #200]
+    1438:	91032210 	add	x16, x16, #0xc8
+    143c:	d61f0220 	br	x17
+
+0000000000001440 <_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_@plt>:
+    1440:	f00000f0 	adrp	x16, 20000 <_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE@Base>
+    1444:	f9406a11 	ldr	x17, [x16, #208]
+    1448:	91034210 	add	x16, x16, #0xd0
+    144c:	d61f0220 	br	x17
+
+0000000000001450 <_ZN2cv12resizeWindowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEii@plt>:
+    1450:	f00000f0 	adrp	x16, 20000 <_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE@Base>
+    1454:	f9406e11 	ldr	x17, [x16, #216]
+    1458:	91036210 	add	x16, x16, #0xd8
+    145c:	d61f0220 	br	x17
+
+0000000000001460 <exit@plt>:
+    1460:	f00000f0 	adrp	x16, 20000 <_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE@Base>
+    1464:	f9407211 	ldr	x17, [x16, #224]
+    1468:	91038210 	add	x16, x16, #0xe0
+    146c:	d61f0220 	br	x17
+
+0000000000001470 <_ZN2cv3MatC1Eiii@plt>:
+    1470:	f00000f0 	adrp	x16, 20000 <_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE@Base>
+    1474:	f9407611 	ldr	x17, [x16, #232]
+    1478:	9103a210 	add	x16, x16, #0xe8
+    147c:	d61f0220 	br	x17
+
+0000000000001480 <__cxa_guard_release@plt>:
+    1480:	f00000f0 	adrp	x16, 20000 <_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE@Base>
+    1484:	f9407a11 	ldr	x17, [x16, #240]
+    1488:	9103c210 	add	x16, x16, #0xf0
+    148c:	d61f0220 	br	x17
+
+0000000000001490 <abort@plt>:
+    1490:	f00000f0 	adrp	x16, 20000 <_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE@Base>
+    1494:	f9407e11 	ldr	x17, [x16, #248]
+    1498:	9103e210 	add	x16, x16, #0xf8
+    149c:	d61f0220 	br	x17
+
+00000000000014a0 <__cxa_atexit@plt>:
+    14a0:	f00000f0 	adrp	x16, 20000 <_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE@Base>
+    14a4:	f9408211 	ldr	x17, [x16, #256]
+    14a8:	91040210 	add	x16, x16, #0x100
+    14ac:	d61f0220 	br	x17
+
+00000000000014b0 <_ZN2cv7waitKeyEi@plt>:
+    14b0:	f00000f0 	adrp	x16, 20000 <_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE@Base>
+    14b4:	f9408611 	ldr	x17, [x16, #264]
+    14b8:	91042210 	add	x16, x16, #0x108
+    14bc:	d61f0220 	br	x17
+
+00000000000014c0 <_ZNSt8ios_base4InitC1Ev@plt>:
+    14c0:	f00000f0 	adrp	x16, 20000 <_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE@Base>
+    14c4:	f9408a11 	ldr	x17, [x16, #272]
+    14c8:	91044210 	add	x16, x16, #0x110
+    14cc:	d61f0220 	br	x17
+
+00000000000014d0 <_ZN2cv12VideoCapture4readERKNS_12_OutputArrayE@plt>:
+    14d0:	f00000f0 	adrp	x16, 20000 <_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE@Base>
+    14d4:	f9408e11 	ldr	x17, [x16, #280]
+    14d8:	91046210 	add	x16, x16, #0x118
+    14dc:	d61f0220 	br	x17
+
+00000000000014e0 <_ZNSaIcED1Ev@plt>:
+    14e0:	f00000f0 	adrp	x16, 20000 <_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE@Base>
+    14e4:	f9409211 	ldr	x17, [x16, #288]
+    14e8:	91048210 	add	x16, x16, #0x120
+    14ec:	d61f0220 	br	x17
+
+Disassembly of section .text:
+
+0000000000001500 <_start>:
+    1500:	d503201f 	nop
+    1504:	d280001d 	mov	x29, #0x0                   	// #0
+    1508:	d280001e 	mov	x30, #0x0                   	// #0
+    150c:	aa0003e5 	mov	x5, x0
+    1510:	f94003e1 	ldr	x1, [sp]
+    1514:	910023e2 	add	x2, sp, #0x8
+    1518:	910003e6 	mov	x6, sp
+    151c:	d00000e0 	adrp	x0, 1f000 <__FRAME_END__+0x1c098>
+    1520:	f947dc00 	ldr	x0, [x0, #4024]
+    1524:	d2800003 	mov	x3, #0x0                   	// #0
+    1528:	d2800004 	mov	x4, #0x0                   	// #0
+    152c:	97ffff85 	bl	1340 <__libc_start_main@plt>
+    1530:	97ffffd8 	bl	1490 <abort@plt>
+
+0000000000001534 <call_weak_fn>:
+    1534:	d00000e0 	adrp	x0, 1f000 <__FRAME_END__+0x1c098>
+    1538:	f947e000 	ldr	x0, [x0, #4032]
+    153c:	b4000040 	cbz	x0, 1544 <call_weak_fn+0x10>
+    1540:	17ffff8c 	b	1370 <__gmon_start__@plt>
+    1544:	d65f03c0 	ret
+    1548:	d503201f 	nop
+    154c:	d503201f 	nop
+
+0000000000001550 <deregister_tm_clones>:
+    1550:	f00000e0 	adrp	x0, 20000 <_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE@Base>
+    1554:	91050000 	add	x0, x0, #0x140
+    1558:	f00000e1 	adrp	x1, 20000 <_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE@Base>
+    155c:	91050021 	add	x1, x1, #0x140
+    1560:	eb00003f 	cmp	x1, x0
+    1564:	540000c0 	b.eq	157c <deregister_tm_clones+0x2c>  // b.none
+    1568:	d00000e1 	adrp	x1, 1f000 <__FRAME_END__+0x1c098>
+    156c:	f947ec21 	ldr	x1, [x1, #4056]
+    1570:	b4000061 	cbz	x1, 157c <deregister_tm_clones+0x2c>
+    1574:	aa0103f0 	mov	x16, x1
+    1578:	d61f0200 	br	x16
+    157c:	d65f03c0 	ret
+
+0000000000001580 <register_tm_clones>:
+    1580:	f00000e0 	adrp	x0, 20000 <_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE@Base>
+    1584:	91050000 	add	x0, x0, #0x140
+    1588:	f00000e1 	adrp	x1, 20000 <_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE@Base>
+    158c:	91050021 	add	x1, x1, #0x140
+    1590:	cb000021 	sub	x1, x1, x0
+    1594:	d37ffc22 	lsr	x2, x1, #63
+    1598:	8b810c41 	add	x1, x2, x1, asr #3
+    159c:	9341fc21 	asr	x1, x1, #1
+    15a0:	b40000c1 	cbz	x1, 15b8 <register_tm_clones+0x38>
+    15a4:	d00000e2 	adrp	x2, 1f000 <__FRAME_END__+0x1c098>
+    15a8:	f947e842 	ldr	x2, [x2, #4048]
+    15ac:	b4000062 	cbz	x2, 15b8 <register_tm_clones+0x38>
+    15b0:	aa0203f0 	mov	x16, x2
+    15b4:	d61f0200 	br	x16
+    15b8:	d65f03c0 	ret
+    15bc:	d503201f 	nop
+
+00000000000015c0 <__do_global_dtors_aux>:
+    15c0:	a9be7bfd 	stp	x29, x30, [sp, #-32]!
+    15c4:	910003fd 	mov	x29, sp
+    15c8:	f9000bf3 	str	x19, [sp, #16]
+    15cc:	f00000f3 	adrp	x19, 20000 <_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE@Base>
+    15d0:	39450260 	ldrb	w0, [x19, #320]
+    15d4:	35000140 	cbnz	w0, 15fc <__do_global_dtors_aux+0x3c>
+    15d8:	d00000e0 	adrp	x0, 1f000 <__FRAME_END__+0x1c098>
+    15dc:	f947e400 	ldr	x0, [x0, #4040]
+    15e0:	b4000080 	cbz	x0, 15f0 <__do_global_dtors_aux+0x30>
+    15e4:	f00000e0 	adrp	x0, 20000 <_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE@Base>
+    15e8:	f9409800 	ldr	x0, [x0, #304]
+    15ec:	97ffff71 	bl	13b0 <__cxa_finalize@plt>
+    15f0:	97ffffd8 	bl	1550 <deregister_tm_clones>
+    15f4:	52800020 	mov	w0, #0x1                   	// #1
+    15f8:	39050260 	strb	w0, [x19, #320]
+    15fc:	f9400bf3 	ldr	x19, [sp, #16]
+    1600:	a8c27bfd 	ldp	x29, x30, [sp], #32
+    1604:	d65f03c0 	ret
+    1608:	d503201f 	nop
+    160c:	d503201f 	nop
+
+0000000000001610 <frame_dummy>:
+    1610:	17ffffdc 	b	1580 <register_tm_clones>
+
+0000000000001614 <main>:
+} threadArgs_t;
+pthread_barrier_t barrier;
+void* thread_sobelfilter_func(void* threadArg);
+
+
+int main(int argc, char** argv) {
+    1614:	d12203ff 	sub	sp, sp, #0x880
+    1618:	a9007bfd 	stp	x29, x30, [sp]
+    161c:	910003fd 	mov	x29, sp
+    1620:	a90153f3 	stp	x19, x20, [sp, #16]
+    1624:	f90013f5 	str	x21, [sp, #32]
+    1628:	b9003fe0 	str	w0, [sp, #60]
+    162c:	f9001be1 	str	x1, [sp, #48]
+    if (argc != ARG_LEN) {
+    1630:	b9403fe0 	ldr	w0, [sp, #60]
+    1634:	7100081f 	cmp	w0, #0x2
+    1638:	54000120 	b.eq	165c <main+0x48>  // b.none
+        printf("Usage: %s <image_path>\n", argv[0]);
+    163c:	f9401be0 	ldr	x0, [sp, #48]
+    1640:	f9400000 	ldr	x0, [x0]
+    1644:	aa0003e1 	mov	x1, x0
+    1648:	b0000000 	adrp	x0, 2000 <_ZN2cv5Size_IiEC1Ev+0x10>
+    164c:	91252000 	add	x0, x0, #0x948
+    1650:	97ffff4c 	bl	1380 <printf@plt>
+        exit(1);
+    1654:	52800020 	mov	w0, #0x1                   	// #1
+    1658:	97ffff82 	bl	1460 <exit@plt>
+    }
+
+    VideoCapture vid(argv[1]);
+    165c:	f9401be0 	ldr	x0, [sp, #48]
+    1660:	91002000 	add	x0, x0, #0x8
+    1664:	f9400013 	ldr	x19, [x0]
+    1668:	9119a3e0 	add	x0, sp, #0x668
+    166c:	97ffff2d 	bl	1320 <_ZNSaIcEC1Ev@plt>
+    1670:	9119a3e1 	add	x1, sp, #0x668
+    1674:	911923e0 	add	x0, sp, #0x648
+    1678:	aa0103e2 	mov	x2, x1
+    167c:	aa1303e1 	mov	x1, x19
+    1680:	97ffff70 	bl	1440 <_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_@plt>
+    1684:	911923e1 	add	x1, sp, #0x648
+    1688:	911863e0 	add	x0, sp, #0x618
+    168c:	52800002 	mov	w2, #0x0                   	// #0
+    1690:	97ffff64 	bl	1420 <_ZN2cv12VideoCaptureC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi@plt>
+    1694:	911923e0 	add	x0, sp, #0x648
+    1698:	97ffff4e 	bl	13d0 <_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev@plt>
+    169c:	9119a3e0 	add	x0, sp, #0x668
+    16a0:	97ffff90 	bl	14e0 <_ZNSaIcED1Ev@plt>
+    if (!vid.isOpened()) {
+    16a4:	911863e0 	add	x0, sp, #0x618
+    16a8:	97ffff16 	bl	1300 <_ZNK2cv12VideoCapture8isOpenedEv@plt>
+    16ac:	12001c00 	and	w0, w0, #0xff
+    16b0:	52000000 	eor	w0, w0, #0x1
+    16b4:	12001c00 	and	w0, w0, #0xff
+    16b8:	7100001f 	cmp	w0, #0x0
+    16bc:	540000c0 	b.eq	16d4 <main+0xc0>  // b.none
+        printf("Error: Could not open or find the video.\n");
+    16c0:	b0000000 	adrp	x0, 2000 <_ZN2cv5Size_IiEC1Ev+0x10>
+    16c4:	91258000 	add	x0, x0, #0x960
+    16c8:	97ffff0a 	bl	12f0 <puts@plt>
+        exit(1);
+    16cc:	52800020 	mov	w0, #0x1                   	// #1
+    16d0:	97ffff64 	bl	1460 <exit@plt>
+    }
+
+    pthread_barrier_init(&barrier, NULL, NUM_THREADS);
+    16d4:	52800082 	mov	w2, #0x4                   	// #4
+    16d8:	d2800001 	mov	x1, #0x0                   	// #0
+    16dc:	f00000e0 	adrp	x0, 20000 <_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE@Base>
+    16e0:	9105a000 	add	x0, x0, #0x168
+    16e4:	97ffff1b 	bl	1350 <pthread_barrier_init@plt>
+    double fps = 0.0;
+    double prev_tick = cv::getTickCount();
+    #endif
+
+    // avg fps
+    size_t frame_count = 0;
+    16e8:	f9043fff 	str	xzr, [sp, #2168]
+    auto start = std::chrono::high_resolution_clock::now();
+    16ec:	97ffff2d 	bl	13a0 <_ZNSt6chrono3_V212system_clock3nowEv@plt>
+    16f0:	f9030be0 	str	x0, [sp, #1552]
+
+    int cols = vid.get(CAP_PROP_FRAME_WIDTH);
+    16f4:	911863e0 	add	x0, sp, #0x618
+    16f8:	52800061 	mov	w1, #0x3                   	// #3
+    16fc:	97ffff05 	bl	1310 <_ZNK2cv12VideoCapture3getEi@plt>
+    1700:	1e780000 	fcvtzs	w0, d0
+    1704:	b9086fe0 	str	w0, [sp, #2156]
+    int rows = vid.get(CAP_PROP_FRAME_HEIGHT);
+    1708:	911863e0 	add	x0, sp, #0x618
+    170c:	52800081 	mov	w1, #0x4                   	// #4
+    1710:	97ffff00 	bl	1310 <_ZNK2cv12VideoCapture3getEi@plt>
+    1714:	1e780000 	fcvtzs	w0, d0
+    1718:	b9086be0 	str	w0, [sp, #2152]
+
+    Mat grey_frame(rows, cols, CV_8UC1);
+    171c:	9116c3e0 	add	x0, sp, #0x5b0
+    1720:	52800003 	mov	w3, #0x0                   	// #0
+    1724:	b9486fe2 	ldr	w2, [sp, #2156]
+    1728:	b9486be1 	ldr	w1, [sp, #2152]
+    172c:	97ffff51 	bl	1470 <_ZN2cv3MatC1Eiii@plt>
+    Mat sobel_frame(rows, cols, CV_8UC1);
+    1730:	911543e0 	add	x0, sp, #0x550
+    1734:	52800003 	mov	w3, #0x0                   	// #0
+    1738:	b9486fe2 	ldr	w2, [sp, #2156]
+    173c:	b9486be1 	ldr	w1, [sp, #2152]
+    1740:	97ffff4c 	bl	1470 <_ZN2cv3MatC1Eiii@plt>
+
+    while (1) {
+        Mat frame;
+    1744:	910123e0 	add	x0, sp, #0x48
+    1748:	97fffeda 	bl	12b0 <_ZN2cv3MatC1Ev@plt>
+        bool succ = vid.read(frame);
+    174c:	910123e1 	add	x1, sp, #0x48
+    1750:	9119c3e0 	add	x0, sp, #0x670
+    1754:	940001af 	bl	1e10 <_ZN2cv12_OutputArrayC1ERNS_3MatE>
+    1758:	9119c3e1 	add	x1, sp, #0x670
+    175c:	911863e0 	add	x0, sp, #0x618
+    1760:	97ffff5c 	bl	14d0 <_ZN2cv12VideoCapture4readERKNS_12_OutputArrayE@plt>
+    1764:	12001c00 	and	w0, w0, #0xff
+    1768:	39219fe0 	strb	w0, [sp, #2151]
+    176c:	9119c3e0 	add	x0, sp, #0x670
+    1770:	940001b5 	bl	1e44 <_ZN2cv12_OutputArrayD1Ev>
+        if (!succ) {
+    1774:	39619fe0 	ldrb	w0, [sp, #2151]
+    1778:	52000000 	eor	w0, w0, #0x1
+    177c:	12001c00 	and	w0, w0, #0xff
+    1780:	7100001f 	cmp	w0, #0x0
+    1784:	54000060 	b.eq	1790 <main+0x17c>  // b.none
+            // printf("End of video\n");
+            break;
+    1788:	52800013 	mov	w19, #0x0                   	// #0
+    178c:	140000a7 	b	1a28 <main+0x414>
+        double time_elapsed = (current_tick - prev_tick) / cv::getTickFrequency();
+        prev_tick = current_tick;
+        fps = 1.0 / time_elapsed;
+        printf("FPS: %.2f\n", fps); 
+        #endif
+        frame_count++;
+    1790:	f9443fe0 	ldr	x0, [sp, #2168]
+    1794:	91000400 	add	x0, x0, #0x1
+    1798:	f9043fe0 	str	x0, [sp, #2168]
+
+        threadArgs_t threadArgs[NUM_THREADS];
+    179c:	9102a3e0 	add	x0, sp, #0xa8
+    17a0:	d2800073 	mov	x19, #0x3                   	// #3
+    17a4:	aa0003f4 	mov	x20, x0
+    17a8:	14000005 	b	17bc <main+0x1a8>
+    17ac:	aa1403e0 	mov	x0, x20
+    17b0:	940001cc 	bl	1ee0 <_ZN12threadArgs_tC1Ev>
+    17b4:	d1000673 	sub	x19, x19, #0x1
+    17b8:	9104a294 	add	x20, x20, #0x128
+    17bc:	f100027f 	cmp	x19, #0x0
+    17c0:	54ffff6a 	b.ge	17ac <main+0x198>  // b.tcont
+
+        for (int i = 0; i < NUM_THREADS; i++) {
+    17c4:	b90877ff 	str	wzr, [sp, #2164]
+    17c8:	14000039 	b	18ac <main+0x298>
+            threadArgs[i] = {i, frame, grey_frame, sobel_frame};
+    17cc:	9102a3e2 	add	x2, sp, #0xa8
+    17d0:	b98877e1 	ldrsw	x1, [sp, #2164]
+    17d4:	aa0103e0 	mov	x0, x1
+    17d8:	d37df000 	lsl	x0, x0, #3
+    17dc:	8b010000 	add	x0, x0, x1
+    17e0:	d37ef400 	lsl	x0, x0, #2
+    17e4:	8b010000 	add	x0, x0, x1
+    17e8:	d37df000 	lsl	x0, x0, #3
+    17ec:	8b000055 	add	x21, x2, x0
+    double avg_fps = frame_count * 1000.0 / time_elapsed;
+
+    printf("%f, %d\n", avg_fps, NUM_THREADS);
+
+    return 0;
+}
+    17f0:	b94877e0 	ldr	w0, [sp, #2164]
+    17f4:	b9068be0 	str	w0, [sp, #1672]
+    17f8:	910123e1 	add	x1, sp, #0x48
+    17fc:	911a23e0 	add	x0, sp, #0x688
+    1800:	91002000 	add	x0, x0, #0x8
+    1804:	97fffeff 	bl	1400 <_ZN2cv3MatC1ERKS0_@plt>
+    1808:	52800033 	mov	w19, #0x1                   	// #1
+    180c:	9116c3e1 	add	x1, sp, #0x5b0
+    1810:	911a23e0 	add	x0, sp, #0x688
+    1814:	9101a000 	add	x0, x0, #0x68
+    1818:	97fffefa 	bl	1400 <_ZN2cv3MatC1ERKS0_@plt>
+    181c:	52800034 	mov	w20, #0x1                   	// #1
+    1820:	911543e1 	add	x1, sp, #0x550
+    1824:	911a23e0 	add	x0, sp, #0x688
+    1828:	91032000 	add	x0, x0, #0xc8
+    182c:	97fffef5 	bl	1400 <_ZN2cv3MatC1ERKS0_@plt>
+    1830:	52800013 	mov	w19, #0x0                   	// #0
+    1834:	52800014 	mov	w20, #0x0                   	// #0
+            threadArgs[i] = {i, frame, grey_frame, sobel_frame};
+    1838:	911a23e0 	add	x0, sp, #0x688
+    183c:	aa0003e1 	mov	x1, x0
+    1840:	aa1503e0 	mov	x0, x21
+    1844:	940001b6 	bl	1f1c <_ZN12threadArgs_taSEOS_>
+    1848:	911a23e0 	add	x0, sp, #0x688
+    184c:	94000196 	bl	1ea4 <_ZN12threadArgs_tD1Ev>
+            pthread_create(&threads[i], NULL, thread_sobelfilter_func, (void*)&threadArgs[i]);
+    1850:	b98877e0 	ldrsw	x0, [sp, #2164]
+    1854:	d37df001 	lsl	x1, x0, #3
+    1858:	f00000e0 	adrp	x0, 20000 <_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE@Base>
+    185c:	91052000 	add	x0, x0, #0x148
+    1860:	8b000024 	add	x4, x1, x0
+    1864:	9102a3e2 	add	x2, sp, #0xa8
+    1868:	b98877e1 	ldrsw	x1, [sp, #2164]
+    186c:	aa0103e0 	mov	x0, x1
+    1870:	d37df000 	lsl	x0, x0, #3
+    1874:	8b010000 	add	x0, x0, x1
+    1878:	d37ef400 	lsl	x0, x0, #2
+    187c:	8b010000 	add	x0, x0, x1
+    1880:	d37df000 	lsl	x0, x0, #3
+    1884:	8b000040 	add	x0, x2, x0
+    1888:	aa0003e3 	mov	x3, x0
+    188c:	90000000 	adrp	x0, 1000 <__abi_tag+0xd88>
+    1890:	91311002 	add	x2, x0, #0xc44
+    1894:	d2800001 	mov	x1, #0x0                   	// #0
+    1898:	aa0403e0 	mov	x0, x4
+    189c:	97fffea5 	bl	1330 <pthread_create@plt>
+        for (int i = 0; i < NUM_THREADS; i++) {
+    18a0:	b94877e0 	ldr	w0, [sp, #2164]
+    18a4:	11000400 	add	w0, w0, #0x1
+    18a8:	b90877e0 	str	w0, [sp, #2164]
+    18ac:	b94877e0 	ldr	w0, [sp, #2164]
+    18b0:	71000c1f 	cmp	w0, #0x3
+    18b4:	54fff8cd 	b.le	17cc <main+0x1b8>
+        for (int i = 0; i < NUM_THREADS; i++) {
+    18b8:	b90873ff 	str	wzr, [sp, #2160]
+    18bc:	1400000a 	b	18e4 <main+0x2d0>
+            pthread_join(threads[i], NULL);
+    18c0:	f00000e0 	adrp	x0, 20000 <_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE@Base>
+    18c4:	91052000 	add	x0, x0, #0x148
+    18c8:	b98873e1 	ldrsw	x1, [sp, #2160]
+    18cc:	f8617800 	ldr	x0, [x0, x1, lsl #3]
+    18d0:	d2800001 	mov	x1, #0x0                   	// #0
+    18d4:	97fffecf 	bl	1410 <pthread_join@plt>
+        for (int i = 0; i < NUM_THREADS; i++) {
+    18d8:	b94873e0 	ldr	w0, [sp, #2160]
+    18dc:	11000400 	add	w0, w0, #0x1
+    18e0:	b90873e0 	str	w0, [sp, #2160]
+    18e4:	b94873e0 	ldr	w0, [sp, #2160]
+    18e8:	71000c1f 	cmp	w0, #0x3
+    18ec:	54fffead 	b.le	18c0 <main+0x2ac>
+        namedWindow("Sobel", WINDOW_NORMAL);
+    18f0:	911f43e0 	add	x0, sp, #0x7d0
+    18f4:	97fffe8b 	bl	1320 <_ZNSaIcEC1Ev@plt>
+    18f8:	911f43e0 	add	x0, sp, #0x7d0
+    18fc:	911ec3e3 	add	x3, sp, #0x7b0
+    1900:	aa0003e2 	mov	x2, x0
+    1904:	b0000000 	adrp	x0, 2000 <_ZN2cv5Size_IiEC1Ev+0x10>
+    1908:	91264001 	add	x1, x0, #0x990
+    190c:	aa0303e0 	mov	x0, x3
+    1910:	97fffecc 	bl	1440 <_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_@plt>
+    1914:	911ec3e0 	add	x0, sp, #0x7b0
+    1918:	52800001 	mov	w1, #0x0                   	// #0
+    191c:	97fffeb1 	bl	13e0 <_ZN2cv11namedWindowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi@plt>
+    1920:	911ec3e0 	add	x0, sp, #0x7b0
+    1924:	97fffeab 	bl	13d0 <_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev@plt>
+    1928:	911f43e0 	add	x0, sp, #0x7d0
+    192c:	97fffeed 	bl	14e0 <_ZNSaIcED1Ev@plt>
+        resizeWindow("Sobel", WINDOW_LENGTH, WINDOW_HEIGHT);
+    1930:	911fe3e0 	add	x0, sp, #0x7f8
+    1934:	97fffe7b 	bl	1320 <_ZNSaIcEC1Ev@plt>
+    1938:	911fe3e0 	add	x0, sp, #0x7f8
+    193c:	911f63e3 	add	x3, sp, #0x7d8
+    1940:	aa0003e2 	mov	x2, x0
+    1944:	b0000000 	adrp	x0, 2000 <_ZN2cv5Size_IiEC1Ev+0x10>
+    1948:	91264001 	add	x1, x0, #0x990
+    194c:	aa0303e0 	mov	x0, x3
+    1950:	97fffebc 	bl	1440 <_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_@plt>
+    1954:	911f63e0 	add	x0, sp, #0x7d8
+    1958:	52803c02 	mov	w2, #0x1e0                 	// #480
+    195c:	52805a01 	mov	w1, #0x2d0                 	// #720
+    1960:	97fffebc 	bl	1450 <_ZN2cv12resizeWindowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEii@plt>
+    1964:	911f63e0 	add	x0, sp, #0x7d8
+    1968:	97fffe9a 	bl	13d0 <_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev@plt>
+    196c:	911fe3e0 	add	x0, sp, #0x7f8
+    1970:	97fffedc 	bl	14e0 <_ZNSaIcED1Ev@plt>
+        imshow("Sobel", sobel_frame); 
+    1974:	912083e0 	add	x0, sp, #0x820
+    1978:	97fffe6a 	bl	1320 <_ZNSaIcEC1Ev@plt>
+    197c:	912083e0 	add	x0, sp, #0x820
+    1980:	912003e3 	add	x3, sp, #0x800
+    1984:	aa0003e2 	mov	x2, x0
+    1988:	b0000000 	adrp	x0, 2000 <_ZN2cv5Size_IiEC1Ev+0x10>
+    198c:	91264001 	add	x1, x0, #0x990
+    1990:	aa0303e0 	mov	x0, x3
+    1994:	97fffeab 	bl	1440 <_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_@plt>
+    1998:	911543e1 	add	x1, sp, #0x550
+    199c:	9120a3e0 	add	x0, sp, #0x828
+    19a0:	94000109 	bl	1dc4 <_ZN2cv11_InputArrayC1ERKNS_3MatE>
+    19a4:	9120a3e1 	add	x1, sp, #0x828
+    19a8:	912003e0 	add	x0, sp, #0x800
+    19ac:	97fffe3d 	bl	12a0 <_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE@plt>
+    19b0:	9120a3e0 	add	x0, sp, #0x828
+    19b4:	94000112 	bl	1dfc <_ZN2cv11_InputArrayD1Ev>
+    19b8:	912003e0 	add	x0, sp, #0x800
+    19bc:	97fffe85 	bl	13d0 <_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev@plt>
+    19c0:	912083e0 	add	x0, sp, #0x820
+    19c4:	97fffec7 	bl	14e0 <_ZNSaIcED1Ev@plt>
+        if (waitKey(1) == 27)break;
+    19c8:	52800020 	mov	w0, #0x1                   	// #1
+    19cc:	97fffeb9 	bl	14b0 <_ZN2cv7waitKeyEi@plt>
+    19d0:	71006c1f 	cmp	w0, #0x1b
+    19d4:	1a9f17e0 	cset	w0, eq	// eq = none
+    19d8:	12001c00 	and	w0, w0, #0xff
+    19dc:	7100001f 	cmp	w0, #0x0
+    19e0:	54000060 	b.eq	19ec <main+0x3d8>  // b.none
+    19e4:	52800014 	mov	w20, #0x0                   	// #0
+    19e8:	14000002 	b	19f0 <main+0x3dc>
+    19ec:	52800034 	mov	w20, #0x1                   	// #1
+        threadArgs_t threadArgs[NUM_THREADS];
+    19f0:	9102a3f3 	add	x19, sp, #0xa8
+    19f4:	91128273 	add	x19, x19, #0x4a0
+    }
+    19f8:	9102a3e0 	add	x0, sp, #0xa8
+    19fc:	eb00027f 	cmp	x19, x0
+    1a00:	540000a0 	b.eq	1a14 <main+0x400>  // b.none
+        threadArgs_t threadArgs[NUM_THREADS];
+    1a04:	d104a273 	sub	x19, x19, #0x128
+    1a08:	aa1303e0 	mov	x0, x19
+    1a0c:	94000126 	bl	1ea4 <_ZN12threadArgs_tD1Ev>
+    }
+    1a10:	17fffffa 	b	19f8 <main+0x3e4>
+    1a14:	7100069f 	cmp	w20, #0x1
+    1a18:	54000060 	b.eq	1a24 <main+0x410>  // b.none
+    1a1c:	52800013 	mov	w19, #0x0                   	// #0
+    1a20:	14000002 	b	1a28 <main+0x414>
+    1a24:	52800033 	mov	w19, #0x1                   	// #1
+    1a28:	910123e0 	add	x0, sp, #0x48
+    1a2c:	97fffe29 	bl	12d0 <_ZN2cv3MatD1Ev@plt>
+    1a30:	7100067f 	cmp	w19, #0x1
+    1a34:	54000041 	b.ne	1a3c <main+0x428>  // b.any
+    1a38:	17ffff43 	b	1744 <main+0x130>
+    auto end = std::chrono::high_resolution_clock::now();
+    1a3c:	97fffe59 	bl	13a0 <_ZNSt6chrono3_V212system_clock3nowEv@plt>
+    1a40:	f902a7e0 	str	x0, [sp, #1352]
+    auto time_elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
+    1a44:	911843e1 	add	x1, sp, #0x610
+    1a48:	911523e0 	add	x0, sp, #0x548
+    1a4c:	94000154 	bl	1f9c <_ZNSt6chronomiINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1000000000EEEES6_EENSt11common_typeIJT0_T1_EE4typeERKNS_10time_pointIT_S8_EERKNSC_ISD_S9_EE>
+    1a50:	f90427e0 	str	x0, [sp, #2120]
+    1a54:	912123e0 	add	x0, sp, #0x848
+    1a58:	9400016f 	bl	2014 <_ZNSt6chrono13duration_castINS_8durationIlSt5ratioILl1ELl1000EEEElS2_ILl1ELl1000000000EEEENSt9enable_ifIXsrNS_13__is_durationIT_EE5valueES8_E4typeERKNS1_IT0_T1_EE>
+    1a5c:	f90423e0 	str	x0, [sp, #2112]
+    1a60:	912103e0 	add	x0, sp, #0x840
+    1a64:	94000173 	bl	2030 <_ZNKSt6chrono8durationIlSt5ratioILl1ELl1000EEE5countEv>
+    1a68:	f9042fe0 	str	x0, [sp, #2136]
+    double avg_fps = frame_count * 1000.0 / time_elapsed;
+    1a6c:	fd443fe0 	ldr	d0, [sp, #2168]
+    1a70:	7e61d800 	ucvtf	d0, d0
+    1a74:	d2c80000 	mov	x0, #0x400000000000        	// #70368744177664
+    1a78:	f2e811e0 	movk	x0, #0x408f, lsl #48
+    1a7c:	9e670001 	fmov	d1, x0
+    1a80:	1e610801 	fmul	d1, d0, d1
+    1a84:	fd442fe0 	ldr	d0, [sp, #2136]
+    1a88:	5e61d800 	scvtf	d0, d0
+    1a8c:	1e601820 	fdiv	d0, d1, d0
+    1a90:	fd042be0 	str	d0, [sp, #2128]
+    printf("%f, %d\n", avg_fps, NUM_THREADS);
+    1a94:	52800081 	mov	w1, #0x4                   	// #4
+    1a98:	fd442be0 	ldr	d0, [sp, #2128]
+    1a9c:	b0000000 	adrp	x0, 2000 <_ZN2cv5Size_IiEC1Ev+0x10>
+    1aa0:	91266000 	add	x0, x0, #0x998
+    1aa4:	97fffe37 	bl	1380 <printf@plt>
+    return 0;
+    1aa8:	52800013 	mov	w19, #0x0                   	// #0
+}
+    1aac:	911543e0 	add	x0, sp, #0x550
+    1ab0:	97fffe08 	bl	12d0 <_ZN2cv3MatD1Ev@plt>
+    1ab4:	9116c3e0 	add	x0, sp, #0x5b0
+    1ab8:	97fffe06 	bl	12d0 <_ZN2cv3MatD1Ev@plt>
+    1abc:	911863e0 	add	x0, sp, #0x618
+    1ac0:	97fffe40 	bl	13c0 <_ZN2cv12VideoCaptureD1Ev@plt>
+    1ac4:	2a1303e0 	mov	w0, w19
+    1ac8:	1400005a 	b	1c30 <main+0x61c>
+    VideoCapture vid(argv[1]);
+    1acc:	aa0003f3 	mov	x19, x0
+    1ad0:	911923e0 	add	x0, sp, #0x648
+    1ad4:	97fffe3f 	bl	13d0 <_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev@plt>
+    1ad8:	14000002 	b	1ae0 <main+0x4cc>
+    1adc:	aa0003f3 	mov	x19, x0
+    1ae0:	9119a3e0 	add	x0, sp, #0x668
+    1ae4:	97fffe7f 	bl	14e0 <_ZNSaIcED1Ev@plt>
+    1ae8:	aa1303e0 	mov	x0, x19
+    1aec:	97fffe51 	bl	1430 <_Unwind_Resume@plt>
+        bool succ = vid.read(frame);
+    1af0:	aa0003f3 	mov	x19, x0
+    1af4:	9119c3e0 	add	x0, sp, #0x670
+    1af8:	940000d3 	bl	1e44 <_ZN2cv12_OutputArrayD1Ev>
+    1afc:	1400003d 	b	1bf0 <main+0x5dc>
+            threadArgs[i] = {i, frame, grey_frame, sobel_frame};
+    1b00:	aa0003f5 	mov	x21, x0
+    1b04:	911a23e0 	add	x0, sp, #0x688
+    1b08:	940000e7 	bl	1ea4 <_ZN12threadArgs_tD1Ev>
+    1b0c:	14000002 	b	1b14 <main+0x500>
+}
+    1b10:	aa0003f5 	mov	x21, x0
+    1b14:	7100029f 	cmp	w20, #0x0
+    1b18:	54000080 	b.eq	1b28 <main+0x514>  // b.none
+    1b1c:	911a23e0 	add	x0, sp, #0x688
+    1b20:	9101a000 	add	x0, x0, #0x68
+    1b24:	97fffdeb 	bl	12d0 <_ZN2cv3MatD1Ev@plt>
+    1b28:	aa1503f4 	mov	x20, x21
+    1b2c:	14000002 	b	1b34 <main+0x520>
+    1b30:	aa0003f4 	mov	x20, x0
+    1b34:	7100027f 	cmp	w19, #0x0
+    1b38:	54000460 	b.eq	1bc4 <main+0x5b0>  // b.none
+    1b3c:	911a23e0 	add	x0, sp, #0x688
+    1b40:	91002000 	add	x0, x0, #0x8
+    1b44:	97fffde3 	bl	12d0 <_ZN2cv3MatD1Ev@plt>
+    1b48:	1400001f 	b	1bc4 <main+0x5b0>
+        namedWindow("Sobel", WINDOW_NORMAL);
+    1b4c:	aa0003f3 	mov	x19, x0
+    1b50:	911ec3e0 	add	x0, sp, #0x7b0
+    1b54:	97fffe1f 	bl	13d0 <_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev@plt>
+    1b58:	14000002 	b	1b60 <main+0x54c>
+    1b5c:	aa0003f3 	mov	x19, x0
+    1b60:	911f43e0 	add	x0, sp, #0x7d0
+    1b64:	97fffe5f 	bl	14e0 <_ZNSaIcED1Ev@plt>
+    1b68:	aa1303f4 	mov	x20, x19
+    1b6c:	14000016 	b	1bc4 <main+0x5b0>
+        resizeWindow("Sobel", WINDOW_LENGTH, WINDOW_HEIGHT);
+    1b70:	aa0003f3 	mov	x19, x0
+    1b74:	911f63e0 	add	x0, sp, #0x7d8
+    1b78:	97fffe16 	bl	13d0 <_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev@plt>
+    1b7c:	14000002 	b	1b84 <main+0x570>
+    1b80:	aa0003f3 	mov	x19, x0
+    1b84:	911fe3e0 	add	x0, sp, #0x7f8
+    1b88:	97fffe56 	bl	14e0 <_ZNSaIcED1Ev@plt>
+    1b8c:	aa1303f4 	mov	x20, x19
+    1b90:	1400000d 	b	1bc4 <main+0x5b0>
+        imshow("Sobel", sobel_frame); 
+    1b94:	aa0003f3 	mov	x19, x0
+    1b98:	9120a3e0 	add	x0, sp, #0x828
+    1b9c:	94000098 	bl	1dfc <_ZN2cv11_InputArrayD1Ev>
+    1ba0:	912003e0 	add	x0, sp, #0x800
+    1ba4:	97fffe0b 	bl	13d0 <_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev@plt>
+    1ba8:	14000002 	b	1bb0 <main+0x59c>
+    1bac:	aa0003f3 	mov	x19, x0
+    1bb0:	912083e0 	add	x0, sp, #0x820
+    1bb4:	97fffe4b 	bl	14e0 <_ZNSaIcED1Ev@plt>
+    1bb8:	aa1303f4 	mov	x20, x19
+    1bbc:	14000002 	b	1bc4 <main+0x5b0>
+        threadArgs_t threadArgs[NUM_THREADS];
+    1bc0:	aa0003f4 	mov	x20, x0
+    1bc4:	9102a3f3 	add	x19, sp, #0xa8
+    1bc8:	91128273 	add	x19, x19, #0x4a0
+    }
+    1bcc:	9102a3e0 	add	x0, sp, #0xa8
+    1bd0:	eb00027f 	cmp	x19, x0
+    1bd4:	540000a0 	b.eq	1be8 <main+0x5d4>  // b.none
+        threadArgs_t threadArgs[NUM_THREADS];
+    1bd8:	d104a273 	sub	x19, x19, #0x128
+    1bdc:	aa1303e0 	mov	x0, x19
+    1be0:	940000b1 	bl	1ea4 <_ZN12threadArgs_tD1Ev>
+    }
+    1be4:	17fffffa 	b	1bcc <main+0x5b8>
+        threadArgs_t threadArgs[NUM_THREADS];
+    1be8:	d503201f 	nop
+    1bec:	aa1403f3 	mov	x19, x20
+    }
+    1bf0:	910123e0 	add	x0, sp, #0x48
+    1bf4:	97fffdb7 	bl	12d0 <_ZN2cv3MatD1Ev@plt>
+    1bf8:	14000002 	b	1c00 <main+0x5ec>
+}
+    1bfc:	aa0003f3 	mov	x19, x0
+    1c00:	911543e0 	add	x0, sp, #0x550
+    1c04:	97fffdb3 	bl	12d0 <_ZN2cv3MatD1Ev@plt>
+    1c08:	14000002 	b	1c10 <main+0x5fc>
+    1c0c:	aa0003f3 	mov	x19, x0
+    1c10:	9116c3e0 	add	x0, sp, #0x5b0
+    1c14:	97fffdaf 	bl	12d0 <_ZN2cv3MatD1Ev@plt>
+    1c18:	14000002 	b	1c20 <main+0x60c>
+    1c1c:	aa0003f3 	mov	x19, x0
+    1c20:	911863e0 	add	x0, sp, #0x618
+    1c24:	97fffde7 	bl	13c0 <_ZN2cv12VideoCaptureD1Ev@plt>
+    1c28:	aa1303e0 	mov	x0, x19
+    1c2c:	97fffe01 	bl	1430 <_Unwind_Resume@plt>
+    1c30:	a94153f3 	ldp	x19, x20, [sp, #16]
+    1c34:	f94013f5 	ldr	x21, [sp, #32]
+    1c38:	a9407bfd 	ldp	x29, x30, [sp]
+    1c3c:	912203ff 	add	sp, sp, #0x880
+    1c40:	d65f03c0 	ret
+
+0000000000001c44 <_Z23thread_sobelfilter_funcPv>:
+
+
+void* thread_sobelfilter_func(void* threadArg) {
+    1c44:	a9bd7bfd 	stp	x29, x30, [sp, #-48]!
+    1c48:	910003fd 	mov	x29, sp
+    1c4c:	f9000fe0 	str	x0, [sp, #24]
+    threadArgs_t* args = (threadArgs_t*) threadArg;
+    1c50:	f9400fe0 	ldr	x0, [sp, #24]
+    1c54:	f90017e0 	str	x0, [sp, #40]
+    int partition_size = args->frame.rows / NUM_THREADS;
+    1c58:	f94017e0 	ldr	x0, [sp, #40]
+    1c5c:	b9401000 	ldr	w0, [x0, #16]
+    1c60:	11000c01 	add	w1, w0, #0x3
+    1c64:	7100001f 	cmp	w0, #0x0
+    1c68:	1a80b020 	csel	w0, w1, w0, lt	// lt = tstop
+    1c6c:	13027c00 	asr	w0, w0, #2
+    1c70:	b90027e0 	str	w0, [sp, #36]
+
+    to442_greyscale(args->frame, args->grey_frame, args->id, partition_size);
+    1c74:	f94017e0 	ldr	x0, [sp, #40]
+    1c78:	91002004 	add	x4, x0, #0x8
+    1c7c:	f94017e0 	ldr	x0, [sp, #40]
+    1c80:	9101a001 	add	x1, x0, #0x68
+    1c84:	f94017e0 	ldr	x0, [sp, #40]
+    1c88:	b9400000 	ldr	w0, [x0]
+    1c8c:	b98027e2 	ldrsw	x2, [sp, #36]
+    1c90:	aa0203e3 	mov	x3, x2
+    1c94:	2a0003e2 	mov	w2, w0
+    1c98:	aa0403e0 	mov	x0, x4
+    1c9c:	94000122 	bl	2124 <_Z15to442_greyscaleRN2cv3MatES1_im>
+    pthread_barrier_wait(&barrier);
+    1ca0:	f00000e0 	adrp	x0, 20000 <_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE@Base>
+    1ca4:	9105a000 	add	x0, x0, #0x168
+    1ca8:	97fffd8e 	bl	12e0 <pthread_barrier_wait@plt>
+    to442_sobel(args->grey_frame, args->sobel_frame, args->id, partition_size);
+    1cac:	f94017e0 	ldr	x0, [sp, #40]
+    1cb0:	9101a004 	add	x4, x0, #0x68
+    1cb4:	f94017e0 	ldr	x0, [sp, #40]
+    1cb8:	91032001 	add	x1, x0, #0xc8
+    1cbc:	f94017e0 	ldr	x0, [sp, #40]
+    1cc0:	b9400000 	ldr	w0, [x0]
+    1cc4:	b98027e2 	ldrsw	x2, [sp, #36]
+    1cc8:	aa0203e3 	mov	x3, x2
+    1ccc:	2a0003e2 	mov	w2, w0
+    1cd0:	aa0403e0 	mov	x0, x4
+    1cd4:	94000284 	bl	26e4 <_Z11to442_sobelRN2cv3MatES1_im>
+
+    pthread_exit(NULL);
+    1cd8:	d2800000 	mov	x0, #0x0                   	// #0
+    1cdc:	97fffdc5 	bl	13f0 <pthread_exit@plt>
+
+0000000000001ce0 <_Z41__static_initialization_and_destruction_0ii>:
+}
+    1ce0:	a9be7bfd 	stp	x29, x30, [sp, #-32]!
+    1ce4:	910003fd 	mov	x29, sp
+    1ce8:	b9001fe0 	str	w0, [sp, #28]
+    1cec:	b9001be1 	str	w1, [sp, #24]
+    1cf0:	b9401fe0 	ldr	w0, [sp, #28]
+    1cf4:	7100041f 	cmp	w0, #0x1
+    1cf8:	540001e1 	b.ne	1d34 <_Z41__static_initialization_and_destruction_0ii+0x54>  // b.any
+    1cfc:	b9401be1 	ldr	w1, [sp, #24]
+    1d00:	529fffe0 	mov	w0, #0xffff                	// #65535
+    1d04:	6b00003f 	cmp	w1, w0
+    1d08:	54000161 	b.ne	1d34 <_Z41__static_initialization_and_destruction_0ii+0x54>  // b.any
+  extern wostream wclog;	/// Linked to standard error (buffered)
+#endif
+  ///@}
+
+  // For construction of filebuffers for cout, cin, cerr, clog et. al.
+  static ios_base::Init __ioinit;
+    1d0c:	f00000e0 	adrp	x0, 20000 <_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE@Base>
+    1d10:	91062000 	add	x0, x0, #0x188
+    1d14:	97fffdeb 	bl	14c0 <_ZNSt8ios_base4InitC1Ev@plt>
+    1d18:	f00000e0 	adrp	x0, 20000 <_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE@Base>
+    1d1c:	9104c002 	add	x2, x0, #0x130
+    1d20:	f00000e0 	adrp	x0, 20000 <_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE@Base>
+    1d24:	91062001 	add	x1, x0, #0x188
+    1d28:	d00000e0 	adrp	x0, 1f000 <__FRAME_END__+0x1c098>
+    1d2c:	f947f000 	ldr	x0, [x0, #4064]
+    1d30:	97fffddc 	bl	14a0 <__cxa_atexit@plt>
+    1d34:	d503201f 	nop
+    1d38:	a8c27bfd 	ldp	x29, x30, [sp], #32
+    1d3c:	d65f03c0 	ret
+
+0000000000001d40 <_GLOBAL__sub_I_threads>:
+    1d40:	a9bf7bfd 	stp	x29, x30, [sp, #-16]!
+    1d44:	910003fd 	mov	x29, sp
+    1d48:	529fffe1 	mov	w1, #0xffff                	// #65535
+    1d4c:	52800020 	mov	w0, #0x1                   	// #1
+    1d50:	97ffffe4 	bl	1ce0 <_Z41__static_initialization_and_destruction_0ii>
+    1d54:	a8c17bfd 	ldp	x29, x30, [sp], #16
+    1d58:	d65f03c0 	ret
+
+0000000000001d5c <_ZN2cv11_InputArray4initEiPKv>:
+    }
+    1d5c:	d10083ff 	sub	sp, sp, #0x20
+    1d60:	f9000fe0 	str	x0, [sp, #24]
+    1d64:	b90017e1 	str	w1, [sp, #20]
+    1d68:	f90007e2 	str	x2, [sp, #8]
+    1d6c:	f9400fe0 	ldr	x0, [sp, #24]
+    1d70:	b94017e1 	ldr	w1, [sp, #20]
+    1d74:	b9000001 	str	w1, [x0]
+    1d78:	f9400fe0 	ldr	x0, [sp, #24]
+    1d7c:	f94007e1 	ldr	x1, [sp, #8]
+    1d80:	f9000401 	str	x1, [x0, #8]
+    1d84:	d503201f 	nop
+    1d88:	910083ff 	add	sp, sp, #0x20
+    1d8c:	d65f03c0 	ret
+
+0000000000001d90 <_ZN2cv11_InputArrayC1Ev>:
+}
+    1d90:	a9be7bfd 	stp	x29, x30, [sp, #-32]!
+    1d94:	910003fd 	mov	x29, sp
+    1d98:	f9000fe0 	str	x0, [sp, #24]
+    1d9c:	f9400fe0 	ldr	x0, [sp, #24]
+    1da0:	91004000 	add	x0, x0, #0x10
+    1da4:	94000093 	bl	1ff0 <_ZN2cv5Size_IiEC1Ev>
+    1da8:	d2800002 	mov	x2, #0x0                   	// #0
+    1dac:	52800001 	mov	w1, #0x0                   	// #0
+    1db0:	f9400fe0 	ldr	x0, [sp, #24]
+    1db4:	97ffffea 	bl	1d5c <_ZN2cv11_InputArray4initEiPKv>
+    1db8:	d503201f 	nop
+    1dbc:	a8c27bfd 	ldp	x29, x30, [sp], #32
+    1dc0:	d65f03c0 	ret
+
+0000000000001dc4 <_ZN2cv11_InputArrayC1ERKNS_3MatE>:
+
+    1dc4:	a9be7bfd 	stp	x29, x30, [sp, #-32]!
+    1dc8:	910003fd 	mov	x29, sp
+    1dcc:	f9000fe0 	str	x0, [sp, #24]
+    1dd0:	f9000be1 	str	x1, [sp, #16]
+    1dd4:	f9400fe0 	ldr	x0, [sp, #24]
+    1dd8:	91004000 	add	x0, x0, #0x10
+    1ddc:	94000085 	bl	1ff0 <_ZN2cv5Size_IiEC1Ev>
+    1de0:	f9400be2 	ldr	x2, [sp, #16]
+    1de4:	52a02021 	mov	w1, #0x1010000             	// #16842752
+    1de8:	f9400fe0 	ldr	x0, [sp, #24]
+    1dec:	97ffffdc 	bl	1d5c <_ZN2cv11_InputArray4initEiPKv>
+    1df0:	d503201f 	nop
+    1df4:	a8c27bfd 	ldp	x29, x30, [sp], #32
+    1df8:	d65f03c0 	ret
+
+0000000000001dfc <_ZN2cv11_InputArrayD1Ev>:
+    1dfc:	d10043ff 	sub	sp, sp, #0x10
+    1e00:	f90007e0 	str	x0, [sp, #8]
+    1e04:	d503201f 	nop
+    1e08:	910043ff 	add	sp, sp, #0x10
+    1e0c:	d65f03c0 	ret
+
+0000000000001e10 <_ZN2cv12_OutputArrayC1ERNS_3MatE>:
+    1e10:	a9be7bfd 	stp	x29, x30, [sp, #-32]!
+    1e14:	910003fd 	mov	x29, sp
+    1e18:	f9000fe0 	str	x0, [sp, #24]
+    1e1c:	f9000be1 	str	x1, [sp, #16]
+    1e20:	f9400fe0 	ldr	x0, [sp, #24]
+    1e24:	97ffffdb 	bl	1d90 <_ZN2cv11_InputArrayC1Ev>
+    1e28:	f9400fe0 	ldr	x0, [sp, #24]
+    1e2c:	f9400be2 	ldr	x2, [sp, #16]
+    1e30:	52a04021 	mov	w1, #0x2010000             	// #33619968
+    1e34:	97ffffca 	bl	1d5c <_ZN2cv11_InputArray4initEiPKv>
+    1e38:	d503201f 	nop
+    1e3c:	a8c27bfd 	ldp	x29, x30, [sp], #32
+    1e40:	d65f03c0 	ret
+
+0000000000001e44 <_ZN2cv12_OutputArrayD1Ev>:
+    typedef OutputArray OutputArrayOfArrays;
+    typedef OutputArray InputOutputArray;
+    typedef OutputArray InputOutputArrayOfArrays;
+@endcode
+ */
+class CV_EXPORTS _OutputArray : public _InputArray
+    1e44:	a9be7bfd 	stp	x29, x30, [sp, #-32]!
+    1e48:	910003fd 	mov	x29, sp
+    1e4c:	f9000fe0 	str	x0, [sp, #24]
+    1e50:	f9400fe0 	ldr	x0, [sp, #24]
+    1e54:	97ffffea 	bl	1dfc <_ZN2cv11_InputArrayD1Ev>
+    1e58:	d503201f 	nop
+    1e5c:	a8c27bfd 	ldp	x29, x30, [sp], #32
+    1e60:	d65f03c0 	ret
+
+0000000000001e64 <_ZNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEC1IlvEERKT_>:
+	// _GLIBCXX_RESOLVE_LIB_DEFECTS
+	// 3050. Conversion specification problem in chrono::duration
+	template<typename _Rep2, typename = _Require<
+		 is_convertible<const _Rep2&, rep>,
+		 __or_<__is_float<rep>, __not_<__is_float<_Rep2>>>>>
+	  constexpr explicit duration(const _Rep2& __rep)
+    1e64:	d10043ff 	sub	sp, sp, #0x10
+    1e68:	f90007e0 	str	x0, [sp, #8]
+    1e6c:	f90003e1 	str	x1, [sp]
+	  : __r(static_cast<rep>(__rep)) { }
+    1e70:	f94003e0 	ldr	x0, [sp]
+    1e74:	f9400001 	ldr	x1, [x0]
+    1e78:	f94007e0 	ldr	x0, [sp, #8]
+    1e7c:	f9000001 	str	x1, [x0]
+    1e80:	d503201f 	nop
+    1e84:	910043ff 	add	sp, sp, #0x10
+    1e88:	d65f03c0 	ret
+
+0000000000001e8c <_ZNKSt6chrono8durationIlSt5ratioILl1ELl1000000000EEE5countEv>:
+	~duration() = default;
+	duration& operator=(const duration&) = default;
+
+	// 20.11.5.2 observer
+	constexpr rep
+	count() const
+    1e8c:	d10043ff 	sub	sp, sp, #0x10
+    1e90:	f90007e0 	str	x0, [sp, #8]
+	{ return __r; }
+    1e94:	f94007e0 	ldr	x0, [sp, #8]
+    1e98:	f9400000 	ldr	x0, [x0]
+    1e9c:	910043ff 	add	sp, sp, #0x10
+    1ea0:	d65f03c0 	ret
+
+0000000000001ea4 <_ZN12threadArgs_tD1Ev>:
+typedef struct threadArgs_t {
+    1ea4:	a9be7bfd 	stp	x29, x30, [sp, #-32]!
+    1ea8:	910003fd 	mov	x29, sp
+    1eac:	f9000fe0 	str	x0, [sp, #24]
+    1eb0:	f9400fe0 	ldr	x0, [sp, #24]
+    1eb4:	91032000 	add	x0, x0, #0xc8
+    1eb8:	97fffd06 	bl	12d0 <_ZN2cv3MatD1Ev@plt>
+    1ebc:	f9400fe0 	ldr	x0, [sp, #24]
+    1ec0:	9101a000 	add	x0, x0, #0x68
+    1ec4:	97fffd03 	bl	12d0 <_ZN2cv3MatD1Ev@plt>
+    1ec8:	f9400fe0 	ldr	x0, [sp, #24]
+    1ecc:	91002000 	add	x0, x0, #0x8
+    1ed0:	97fffd00 	bl	12d0 <_ZN2cv3MatD1Ev@plt>
+    1ed4:	d503201f 	nop
+    1ed8:	a8c27bfd 	ldp	x29, x30, [sp], #32
+    1edc:	d65f03c0 	ret
+
+0000000000001ee0 <_ZN12threadArgs_tC1Ev>:
+    1ee0:	a9be7bfd 	stp	x29, x30, [sp, #-32]!
+    1ee4:	910003fd 	mov	x29, sp
+    1ee8:	f9000fe0 	str	x0, [sp, #24]
+    1eec:	f9400fe0 	ldr	x0, [sp, #24]
+    1ef0:	91002000 	add	x0, x0, #0x8
+    1ef4:	97fffcef 	bl	12b0 <_ZN2cv3MatC1Ev@plt>
+    1ef8:	f9400fe0 	ldr	x0, [sp, #24]
+    1efc:	9101a000 	add	x0, x0, #0x68
+    1f00:	97fffcec 	bl	12b0 <_ZN2cv3MatC1Ev@plt>
+    1f04:	f9400fe0 	ldr	x0, [sp, #24]
+    1f08:	91032000 	add	x0, x0, #0xc8
+    1f0c:	97fffce9 	bl	12b0 <_ZN2cv3MatC1Ev@plt>
+    1f10:	d503201f 	nop
+    1f14:	a8c27bfd 	ldp	x29, x30, [sp], #32
+    1f18:	d65f03c0 	ret
+
+0000000000001f1c <_ZN12threadArgs_taSEOS_>:
+    1f1c:	a9be7bfd 	stp	x29, x30, [sp, #-32]!
+    1f20:	910003fd 	mov	x29, sp
+    1f24:	f9000fe0 	str	x0, [sp, #24]
+    1f28:	f9000be1 	str	x1, [sp, #16]
+    1f2c:	f9400be0 	ldr	x0, [sp, #16]
+    1f30:	b9400001 	ldr	w1, [x0]
+    1f34:	f9400fe0 	ldr	x0, [sp, #24]
+    1f38:	b9000001 	str	w1, [x0]
+    1f3c:	f9400fe0 	ldr	x0, [sp, #24]
+    1f40:	91002002 	add	x2, x0, #0x8
+    1f44:	f9400be0 	ldr	x0, [sp, #16]
+    1f48:	91002000 	add	x0, x0, #0x8
+    1f4c:	aa0003e1 	mov	x1, x0
+    1f50:	aa0203e0 	mov	x0, x2
+    1f54:	97fffcdb 	bl	12c0 <_ZN2cv3MataSEOS0_@plt>
+    1f58:	f9400fe0 	ldr	x0, [sp, #24]
+    1f5c:	9101a002 	add	x2, x0, #0x68
+    1f60:	f9400be0 	ldr	x0, [sp, #16]
+    1f64:	9101a000 	add	x0, x0, #0x68
+    1f68:	aa0003e1 	mov	x1, x0
+    1f6c:	aa0203e0 	mov	x0, x2
+    1f70:	97fffcd4 	bl	12c0 <_ZN2cv3MataSEOS0_@plt>
+    1f74:	f9400fe0 	ldr	x0, [sp, #24]
+    1f78:	91032002 	add	x2, x0, #0xc8
+    1f7c:	f9400be0 	ldr	x0, [sp, #16]
+    1f80:	91032000 	add	x0, x0, #0xc8
+    1f84:	aa0003e1 	mov	x1, x0
+    1f88:	aa0203e0 	mov	x0, x2
+    1f8c:	97fffccd 	bl	12c0 <_ZN2cv3MataSEOS0_@plt>
+    1f90:	f9400fe0 	ldr	x0, [sp, #24]
+    1f94:	a8c27bfd 	ldp	x29, x30, [sp], #32
+    1f98:	d65f03c0 	ret
+
+0000000000001f9c <_ZNSt6chronomiINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1000000000EEEES6_EENSt11common_typeIJT0_T1_EE4typeERKNS_10time_pointIT_S8_EERKNSC_ISD_S9_EE>:
+      }
+
+    /// The difference between two time points (as a duration)
+    template<typename _Clock, typename _Dur1, typename _Dur2>
+      constexpr typename common_type<_Dur1, _Dur2>::type
+      operator-(const time_point<_Clock, _Dur1>& __lhs,
+    1f9c:	a9bd7bfd 	stp	x29, x30, [sp, #-48]!
+    1fa0:	910003fd 	mov	x29, sp
+    1fa4:	f9000fe0 	str	x0, [sp, #24]
+    1fa8:	f9000be1 	str	x1, [sp, #16]
+		const time_point<_Clock, _Dur2>& __rhs)
+      { return __lhs.time_since_epoch() - __rhs.time_since_epoch(); }
+    1fac:	f9400fe0 	ldr	x0, [sp, #24]
+    1fb0:	9400000a 	bl	1fd8 <_ZNKSt6chrono10time_pointINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1000000000EEEEE16time_since_epochEv>
+    1fb4:	f90013e0 	str	x0, [sp, #32]
+    1fb8:	f9400be0 	ldr	x0, [sp, #16]
+    1fbc:	94000007 	bl	1fd8 <_ZNKSt6chrono10time_pointINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1000000000EEEEE16time_since_epochEv>
+    1fc0:	f90017e0 	str	x0, [sp, #40]
+    1fc4:	9100a3e1 	add	x1, sp, #0x28
+    1fc8:	910083e0 	add	x0, sp, #0x20
+    1fcc:	9400001f 	bl	2048 <_ZNSt6chronomiIlSt5ratioILl1ELl1000000000EElS2_EENSt11common_typeIJNS_8durationIT_T0_EENS4_IT1_T2_EEEE4typeERKS7_RKSA_>
+    1fd0:	a8c37bfd 	ldp	x29, x30, [sp], #48
+    1fd4:	d65f03c0 	ret
+
+0000000000001fd8 <_ZNKSt6chrono10time_pointINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1000000000EEEEE16time_since_epochEv>:
+	time_since_epoch() const
+    1fd8:	d10043ff 	sub	sp, sp, #0x10
+    1fdc:	f90007e0 	str	x0, [sp, #8]
+	{ return __d; }
+    1fe0:	f94007e0 	ldr	x0, [sp, #8]
+    1fe4:	f9400000 	ldr	x0, [x0]
+    1fe8:	910043ff 	add	sp, sp, #0x10
+    1fec:	d65f03c0 	ret
+
+0000000000001ff0 <_ZN2cv5Size_IiEC1Ev>:
+
+
+////////////////////////////////// Size /////////////////////////////////
+
+template<typename _Tp> inline
+Size_<_Tp>::Size_()
+    1ff0:	d10043ff 	sub	sp, sp, #0x10
+    1ff4:	f90007e0 	str	x0, [sp, #8]
+    : width(0), height(0) {}
+    1ff8:	f94007e0 	ldr	x0, [sp, #8]
+    1ffc:	b900001f 	str	wzr, [x0]
+    2000:	f94007e0 	ldr	x0, [sp, #8]
+    2004:	b900041f 	str	wzr, [x0, #4]
+    2008:	d503201f 	nop
+    200c:	910043ff 	add	sp, sp, #0x10
+    2010:	d65f03c0 	ret
+
+0000000000002014 <_ZNSt6chrono13duration_castINS_8durationIlSt5ratioILl1ELl1000EEEElS2_ILl1ELl1000000000EEEENSt9enable_ifIXsrNS_13__is_durationIT_EE5valueES8_E4typeERKNS1_IT0_T1_EE>:
+      duration_cast(const duration<_Rep, _Period>& __d)
+    2014:	a9be7bfd 	stp	x29, x30, [sp, #-32]!
+    2018:	910003fd 	mov	x29, sp
+    201c:	f9000fe0 	str	x0, [sp, #24]
+	return __dc::__cast(__d);
+    2020:	f9400fe0 	ldr	x0, [sp, #24]
+    2024:	94000022 	bl	20ac <_ZNSt6chrono20__duration_cast_implINS_8durationIlSt5ratioILl1ELl1000EEEES2_ILl1ELl1000000EElLb1ELb0EE6__castIlS2_ILl1ELl1000000000EEEES4_RKNS1_IT_T0_EE>
+      }
+    2028:	a8c27bfd 	ldp	x29, x30, [sp], #32
+    202c:	d65f03c0 	ret
+
+0000000000002030 <_ZNKSt6chrono8durationIlSt5ratioILl1ELl1000EEE5countEv>:
+	count() const
+    2030:	d10043ff 	sub	sp, sp, #0x10
+    2034:	f90007e0 	str	x0, [sp, #8]
+	{ return __r; }
+    2038:	f94007e0 	ldr	x0, [sp, #8]
+    203c:	f9400000 	ldr	x0, [x0]
+    2040:	910043ff 	add	sp, sp, #0x10
+    2044:	d65f03c0 	ret
+
+0000000000002048 <_ZNSt6chronomiIlSt5ratioILl1ELl1000000000EElS2_EENSt11common_typeIJNS_8durationIT_T0_EENS4_IT1_T2_EEEE4typeERKS7_RKSA_>:
+      operator-(const duration<_Rep1, _Period1>& __lhs,
+    2048:	a9bb7bfd 	stp	x29, x30, [sp, #-80]!
+    204c:	910003fd 	mov	x29, sp
+    2050:	f9000bf3 	str	x19, [sp, #16]
+    2054:	f90017e0 	str	x0, [sp, #40]
+    2058:	f90013e1 	str	x1, [sp, #32]
+	return __cd(__cd(__lhs).count() - __cd(__rhs).count());
+    205c:	f94017e0 	ldr	x0, [sp, #40]
+    2060:	f9400000 	ldr	x0, [x0]
+    2064:	f90023e0 	str	x0, [sp, #64]
+    2068:	910103e0 	add	x0, sp, #0x40
+    206c:	97ffff88 	bl	1e8c <_ZNKSt6chrono8durationIlSt5ratioILl1ELl1000000000EEE5countEv>
+    2070:	aa0003f3 	mov	x19, x0
+    2074:	f94013e0 	ldr	x0, [sp, #32]
+    2078:	f9400000 	ldr	x0, [x0]
+    207c:	f90027e0 	str	x0, [sp, #72]
+    2080:	910123e0 	add	x0, sp, #0x48
+    2084:	97ffff82 	bl	1e8c <_ZNKSt6chrono8durationIlSt5ratioILl1ELl1000000000EEE5countEv>
+    2088:	cb000260 	sub	x0, x19, x0
+    208c:	f9001fe0 	str	x0, [sp, #56]
+    2090:	9100e3e1 	add	x1, sp, #0x38
+    2094:	9100c3e0 	add	x0, sp, #0x30
+    2098:	97ffff73 	bl	1e64 <_ZNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEC1IlvEERKT_>
+    209c:	f9401be0 	ldr	x0, [sp, #48]
+      }
+    20a0:	f9400bf3 	ldr	x19, [sp, #16]
+    20a4:	a8c57bfd 	ldp	x29, x30, [sp], #80
+    20a8:	d65f03c0 	ret
+
+00000000000020ac <_ZNSt6chrono20__duration_cast_implINS_8durationIlSt5ratioILl1ELl1000EEEES2_ILl1ELl1000000EElLb1ELb0EE6__castIlS2_ILl1ELl1000000000EEEES4_RKNS1_IT_T0_EE>:
+	  __cast(const duration<_Rep, _Period>& __d)
+    20ac:	a9bd7bfd 	stp	x29, x30, [sp, #-48]!
+    20b0:	910003fd 	mov	x29, sp
+    20b4:	f9000fe0 	str	x0, [sp, #24]
+	      static_cast<_CR>(__d.count()) / static_cast<_CR>(_CF::den)));
+    20b8:	f9400fe0 	ldr	x0, [sp, #24]
+    20bc:	97ffff74 	bl	1e8c <_ZNKSt6chrono8durationIlSt5ratioILl1ELl1000000000EEE5countEv>
+    20c0:	d2869b61 	mov	x1, #0x34db                	// #13531
+    20c4:	f2baf6c1 	movk	x1, #0xd7b6, lsl #16
+    20c8:	f2dbd041 	movk	x1, #0xde82, lsl #32
+    20cc:	f2e86361 	movk	x1, #0x431b, lsl #48
+    20d0:	9b417c01 	smulh	x1, x0, x1
+    20d4:	9352fc21 	asr	x1, x1, #18
+    20d8:	937ffc00 	asr	x0, x0, #63
+    20dc:	cb000020 	sub	x0, x1, x0
+	    return _ToDur(static_cast<__to_rep>(
+    20e0:	f90017e0 	str	x0, [sp, #40]
+    20e4:	9100a3e1 	add	x1, sp, #0x28
+    20e8:	910083e0 	add	x0, sp, #0x20
+    20ec:	94000004 	bl	20fc <_ZNSt6chrono8durationIlSt5ratioILl1ELl1000EEEC1IlvEERKT_>
+	      static_cast<_CR>(__d.count()) / static_cast<_CR>(_CF::den)));
+    20f0:	f94013e0 	ldr	x0, [sp, #32]
+	  }
+    20f4:	a8c37bfd 	ldp	x29, x30, [sp], #48
+    20f8:	d65f03c0 	ret
+
+00000000000020fc <_ZNSt6chrono8durationIlSt5ratioILl1ELl1000EEEC1IlvEERKT_>:
+	  constexpr explicit duration(const _Rep2& __rep)
+    20fc:	d10043ff 	sub	sp, sp, #0x10
+    2100:	f90007e0 	str	x0, [sp, #8]
+    2104:	f90003e1 	str	x1, [sp]
+	  : __r(static_cast<rep>(__rep)) { }
+    2108:	f94003e0 	ldr	x0, [sp]
+    210c:	f9400001 	ldr	x1, [x0]
+    2110:	f94007e0 	ldr	x0, [sp, #8]
+    2114:	f9000001 	str	x1, [x0]
+    2118:	d503201f 	nop
+    211c:	910043ff 	add	sp, sp, #0x10
+    2120:	d65f03c0 	ret
+
+0000000000002124 <_Z15to442_greyscaleRN2cv3MatES1_im>:
+
+inline uint8_t apply_greyscale(uint8_t* pixel) {
+    return RED_WEIGHT * pixel[2] + GREEN_WEIGHT * pixel[1] + BLUE_WEIGHT * pixel[0];
+}
+
+void to442_greyscale(Mat& frame, Mat& end_frame, int id, size_t partition_size) {
+    2124:	a9b07bfd 	stp	x29, x30, [sp, #-256]!
+    2128:	910003fd 	mov	x29, sp
+    212c:	f90017e0 	str	x0, [sp, #40]
+    2130:	f90013e1 	str	x1, [sp, #32]
+    2134:	b9001fe2 	str	w2, [sp, #28]
+    2138:	f9000be3 	str	x3, [sp, #16]
+    int start_ind = id * partition_size;
+    213c:	b9801fe0 	ldrsw	x0, [sp, #28]
+    2140:	2a0003e1 	mov	w1, w0
+    2144:	f9400be0 	ldr	x0, [sp, #16]
+    2148:	1b007c20 	mul	w0, w1, w0
+    214c:	b900f7e0 	str	w0, [sp, #244]
+    int end_ind = start_ind + partition_size;
+    2150:	f9400be0 	ldr	x0, [sp, #16]
+    2154:	2a0003e1 	mov	w1, w0
+    2158:	b940f7e0 	ldr	w0, [sp, #244]
+    215c:	0b000020 	add	w0, w1, w0
+    2160:	b900f3e0 	str	w0, [sp, #240]
+    return;
+#elif defined(VEC_GREY_FIXED)
+    #define STRIDE  (8)
+
+    // q8.8x8 format
+    static uint8x8_t red_weights = vdup_n_u8(RED_WEIGHT * MAX_8BIT + 1);
+    2164:	d00000e0 	adrp	x0, 20000 <_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE@Base>
+    2168:	91068000 	add	x0, x0, #0x1a0
+    216c:	c8dffc00 	ldar	x0, [x0]
+    2170:	92400000 	and	x0, x0, #0x1
+    2174:	f100001f 	cmp	x0, #0x0
+    2178:	1a9f17e0 	cset	w0, eq	// eq = none
+    217c:	12001c00 	and	w0, w0, #0xff
+    2180:	7100001f 	cmp	w0, #0x0
+    2184:	54000260 	b.eq	21d0 <_Z15to442_greyscaleRN2cv3MatES1_im+0xac>  // b.none
+    2188:	d00000e0 	adrp	x0, 20000 <_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE@Base>
+    218c:	91068000 	add	x0, x0, #0x1a0
+    2190:	97fffc74 	bl	1360 <__cxa_guard_acquire@plt>
+    2194:	7100001f 	cmp	w0, #0x0
+    2198:	1a9f07e0 	cset	w0, ne	// ne = any
+    219c:	12001c00 	and	w0, w0, #0xff
+    21a0:	7100001f 	cmp	w0, #0x0
+    21a4:	54000160 	b.eq	21d0 <_Z15to442_greyscaleRN2cv3MatES1_im+0xac>  // b.none
+    21a8:	528009a0 	mov	w0, #0x4d                  	// #77
+    21ac:	39031fe0 	strb	w0, [sp, #199]
+
+__extension__ extern __inline uint8x8_t
+__attribute__ ((__always_inline__, __gnu_inline__, __artificial__))
+vdup_n_u8 (uint8_t __a)
+{
+  return (uint8x8_t) {__a, __a, __a, __a, __a, __a, __a, __a};
+    21b0:	3d431fe0 	ldr	b0, [sp, #199]
+    21b4:	0e010400 	dup	v0.8b, v0.b[0]
+    21b8:	d00000e0 	adrp	x0, 20000 <_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE@Base>
+    21bc:	91066000 	add	x0, x0, #0x198
+    21c0:	fd000000 	str	d0, [x0]
+    21c4:	d00000e0 	adrp	x0, 20000 <_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE@Base>
+    21c8:	91068000 	add	x0, x0, #0x1a0
+    21cc:	97fffcad 	bl	1480 <__cxa_guard_release@plt>
+    static uint8x8_t green_weights = vdup_n_u8(GREEN_WEIGHT * MAX_8BIT + 1);
+    21d0:	d00000e0 	adrp	x0, 20000 <_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE@Base>
+    21d4:	9106c000 	add	x0, x0, #0x1b0
+    21d8:	c8dffc00 	ldar	x0, [x0]
+    21dc:	92400000 	and	x0, x0, #0x1
+    21e0:	f100001f 	cmp	x0, #0x0
+    21e4:	1a9f17e0 	cset	w0, eq	// eq = none
+    21e8:	12001c00 	and	w0, w0, #0xff
+    21ec:	7100001f 	cmp	w0, #0x0
+    21f0:	54000260 	b.eq	223c <_Z15to442_greyscaleRN2cv3MatES1_im+0x118>  // b.none
+    21f4:	d00000e0 	adrp	x0, 20000 <_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE@Base>
+    21f8:	9106c000 	add	x0, x0, #0x1b0
+    21fc:	97fffc59 	bl	1360 <__cxa_guard_acquire@plt>
+    2200:	7100001f 	cmp	w0, #0x0
+    2204:	1a9f07e0 	cset	w0, ne	// ne = any
+    2208:	12001c00 	and	w0, w0, #0xff
+    220c:	7100001f 	cmp	w0, #0x0
+    2210:	54000160 	b.eq	223c <_Z15to442_greyscaleRN2cv3MatES1_im+0x118>  // b.none
+    2214:	12800d20 	mov	w0, #0xffffff96            	// #-106
+    2218:	39031be0 	strb	w0, [sp, #198]
+    221c:	3d431be0 	ldr	b0, [sp, #198]
+    2220:	0e010400 	dup	v0.8b, v0.b[0]
+    2224:	d00000e0 	adrp	x0, 20000 <_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE@Base>
+    2228:	9106a000 	add	x0, x0, #0x1a8
+    222c:	fd000000 	str	d0, [x0]
+    2230:	d00000e0 	adrp	x0, 20000 <_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE@Base>
+    2234:	9106c000 	add	x0, x0, #0x1b0
+    2238:	97fffc92 	bl	1480 <__cxa_guard_release@plt>
+    static uint8x8_t blue_weights = vdup_n_u8(BLUE_WEIGHT * MAX_8BIT + 1);
+    223c:	d00000e0 	adrp	x0, 20000 <_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE@Base>
+    2240:	91070000 	add	x0, x0, #0x1c0
+    2244:	c8dffc00 	ldar	x0, [x0]
+    2248:	92400000 	and	x0, x0, #0x1
+    224c:	f100001f 	cmp	x0, #0x0
+    2250:	1a9f17e0 	cset	w0, eq	// eq = none
+    2254:	12001c00 	and	w0, w0, #0xff
+    2258:	7100001f 	cmp	w0, #0x0
+    225c:	54000260 	b.eq	22a8 <_Z15to442_greyscaleRN2cv3MatES1_im+0x184>  // b.none
+    2260:	d00000e0 	adrp	x0, 20000 <_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE@Base>
+    2264:	91070000 	add	x0, x0, #0x1c0
+    2268:	97fffc3e 	bl	1360 <__cxa_guard_acquire@plt>
+    226c:	7100001f 	cmp	w0, #0x0
+    2270:	1a9f07e0 	cset	w0, ne	// ne = any
+    2274:	12001c00 	and	w0, w0, #0xff
+    2278:	7100001f 	cmp	w0, #0x0
+    227c:	54000160 	b.eq	22a8 <_Z15to442_greyscaleRN2cv3MatES1_im+0x184>  // b.none
+    2280:	528003c0 	mov	w0, #0x1e                  	// #30
+    2284:	390317e0 	strb	w0, [sp, #197]
+    2288:	3d4317e0 	ldr	b0, [sp, #197]
+    228c:	0e010400 	dup	v0.8b, v0.b[0]
+    2290:	d00000e0 	adrp	x0, 20000 <_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE@Base>
+    2294:	9106e000 	add	x0, x0, #0x1b8
+    2298:	fd000000 	str	d0, [x0]
+    229c:	d00000e0 	adrp	x0, 20000 <_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE@Base>
+    22a0:	91070000 	add	x0, x0, #0x1c0
+    22a4:	97fffc77 	bl	1480 <__cxa_guard_release@plt>
+
+    for (int row = start_ind; row < end_ind; row++) {
+    22a8:	b940f7e0 	ldr	w0, [sp, #244]
+    22ac:	b900ffe0 	str	w0, [sp, #252]
+    22b0:	1400005d 	b	2424 <_Z15to442_greyscaleRN2cv3MatES1_im+0x300>
+        uint8_t* frame_row = frame.ptr<uint8_t>(row);
+    22b4:	b940ffe1 	ldr	w1, [sp, #252]
+    22b8:	f94017e0 	ldr	x0, [sp, #40]
+    22bc:	9400016f 	bl	2878 <_ZN2cv3Mat3ptrIhEEPT_i>
+    22c0:	f90077e0 	str	x0, [sp, #232]
+        uint8_t* grey_row = end_frame.ptr<uint8_t>(row);
+    22c4:	b940ffe1 	ldr	w1, [sp, #252]
+    22c8:	f94013e0 	ldr	x0, [sp, #32]
+    22cc:	9400016b 	bl	2878 <_ZN2cv3Mat3ptrIhEEPT_i>
+    22d0:	f90073e0 	str	x0, [sp, #224]
+        
+        uint16x8_t grey_u16;  
+        uint8x8_t grey_u8;
+
+        for (int col = 0; col < frame.cols; col += STRIDE) {
+    22d4:	b900fbff 	str	wzr, [sp, #248]
+    22d8:	1400004b 	b	2404 <_Z15to442_greyscaleRN2cv3MatES1_im+0x2e0>
+            uint8x8x3_t bgr = vld3_u8(frame_row + col * BYTES_PER_PIXEL);                        
+    22dc:	b940fbe1 	ldr	w1, [sp, #248]
+    22e0:	2a0103e0 	mov	w0, w1
+    22e4:	531f7800 	lsl	w0, w0, #1
+    22e8:	0b010000 	add	w0, w0, w1
+    22ec:	93407c00 	sxtw	x0, w0
+    22f0:	f94077e1 	ldr	x1, [sp, #232]
+    22f4:	8b000020 	add	x0, x1, x0
+    22f8:	f90027e0 	str	x0, [sp, #72]
+
+__extension__ extern __inline uint8x8x3_t
+__attribute__ ((__always_inline__, __gnu_inline__, __artificial__))
+vld3_u8 (const uint8_t * __a)
+{
+  return __builtin_aarch64_ld3v8qi_us (
+    22fc:	f94027e0 	ldr	x0, [sp, #72]
+    2300:	0c404000 	ld3	{v0.8b-v2.8b}, [x0]
+				(const __builtin_aarch64_simd_qi *) __a);
+    2304:	d503201f 	nop
+    2308:	9100c3e0 	add	x0, sp, #0x30
+    230c:	0c006000 	st1	{v0.8b-v2.8b}, [x0]
+
+            // compute greyscale val 
+            grey_u16 = vmull_u8(bgr.val[0], red_weights);
+    2310:	9100c3e0 	add	x0, sp, #0x30
+    2314:	fd400001 	ldr	d1, [x0]
+    2318:	d00000e0 	adrp	x0, 20000 <_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE@Base>
+    231c:	91066000 	add	x0, x0, #0x198
+    2320:	fd400000 	ldr	d0, [x0]
+    2324:	fd002fe1 	str	d1, [sp, #88]
+    2328:	fd002be0 	str	d0, [sp, #80]
+  return __builtin_aarch64_intrinsic_vec_umult_lo_v8qi_uuu (__a, __b);
+    232c:	fd402fe1 	ldr	d1, [sp, #88]
+    2330:	fd402be0 	ldr	d0, [sp, #80]
+    2334:	2e20c020 	umull	v0.8h, v1.8b, v0.8b
+    2338:	d503201f 	nop
+    233c:	3d8037e0 	str	q0, [sp, #208]
+            grey_u16 = vmlal_u8(grey_u16, bgr.val[1], green_weights);
+    2340:	9100c3e0 	add	x0, sp, #0x30
+    2344:	fd400401 	ldr	d1, [x0, #8]
+    2348:	d00000e0 	adrp	x0, 20000 <_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE@Base>
+    234c:	9106a000 	add	x0, x0, #0x1a8
+    2350:	fd400000 	ldr	d0, [x0]
+    2354:	3dc037e2 	ldr	q2, [sp, #208]
+    2358:	3d801fe2 	str	q2, [sp, #112]
+    235c:	fd0037e1 	str	d1, [sp, #104]
+    2360:	fd0033e0 	str	d0, [sp, #96]
+  return __builtin_aarch64_umlalv8qi_uuuu (__a, __b, __c);
+    2364:	3dc01fe0 	ldr	q0, [sp, #112]
+    2368:	fd4037e2 	ldr	d2, [sp, #104]
+    236c:	fd4033e1 	ldr	d1, [sp, #96]
+    2370:	2e218040 	umlal	v0.8h, v2.8b, v1.8b
+    2374:	d503201f 	nop
+    2378:	3d8037e0 	str	q0, [sp, #208]
+            grey_u16 = vmlal_u8(grey_u16, bgr.val[2], blue_weights);
+    237c:	9100c3e0 	add	x0, sp, #0x30
+    2380:	fd400801 	ldr	d1, [x0, #16]
+    2384:	d00000e0 	adrp	x0, 20000 <_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE@Base>
+    2388:	9106e000 	add	x0, x0, #0x1b8
+    238c:	fd400000 	ldr	d0, [x0]
+    2390:	3dc037e2 	ldr	q2, [sp, #208]
+    2394:	3d8027e2 	str	q2, [sp, #144]
+    2398:	fd0047e1 	str	d1, [sp, #136]
+    239c:	fd0043e0 	str	d0, [sp, #128]
+    23a0:	3dc027e0 	ldr	q0, [sp, #144]
+    23a4:	fd4047e2 	ldr	d2, [sp, #136]
+    23a8:	fd4043e1 	ldr	d1, [sp, #128]
+    23ac:	2e218040 	umlal	v0.8h, v2.8b, v1.8b
+    23b0:	d503201f 	nop
+    23b4:	3d8037e0 	str	q0, [sp, #208]
+    23b8:	3dc037e0 	ldr	q0, [sp, #208]
+    23bc:	3d802be0 	str	q0, [sp, #160]
+  return __builtin_aarch64_shrnv8hi_uus (__a, __b);
+    23c0:	3dc02be0 	ldr	q0, [sp, #160]
+    23c4:	0f088400 	shrn	v0.8b, v0.8h, #8
+    23c8:	d503201f 	nop
+
+            // get the integer part
+            grey_u8 = vshrn_n_u16(grey_u16, 8);
+    23cc:	fd0067e0 	str	d0, [sp, #200]
+
+            vst1_u8(grey_row + col, grey_u8);
+    23d0:	b980fbe0 	ldrsw	x0, [sp, #248]
+    23d4:	f94073e1 	ldr	x1, [sp, #224]
+    23d8:	8b000020 	add	x0, x1, x0
+    23dc:	f9005fe0 	str	x0, [sp, #184]
+    23e0:	fd4067e0 	ldr	d0, [sp, #200]
+    23e4:	fd005be0 	str	d0, [sp, #176]
+
+__extension__ extern __inline void
+__attribute__ ((__always_inline__, __gnu_inline__, __artificial__))
+vst1_u8 (uint8_t *__a, uint8x8_t __b)
+{
+  __builtin_aarch64_st1v8qi_su ((__builtin_aarch64_simd_qi *) __a, __b);
+    23e8:	fd405be0 	ldr	d0, [sp, #176]
+    23ec:	f9405fe0 	ldr	x0, [sp, #184]
+    23f0:	fd000000 	str	d0, [x0]
+}
+    23f4:	d503201f 	nop
+        for (int col = 0; col < frame.cols; col += STRIDE) {
+    23f8:	b940fbe0 	ldr	w0, [sp, #248]
+    23fc:	11002000 	add	w0, w0, #0x8
+    2400:	b900fbe0 	str	w0, [sp, #248]
+    2404:	f94017e0 	ldr	x0, [sp, #40]
+    2408:	b9400c00 	ldr	w0, [x0, #12]
+    240c:	b940fbe1 	ldr	w1, [sp, #248]
+    2410:	6b00003f 	cmp	w1, w0
+    2414:	54fff64b 	b.lt	22dc <_Z15to442_greyscaleRN2cv3MatES1_im+0x1b8>  // b.tstop
+    for (int row = start_ind; row < end_ind; row++) {
+    2418:	b940ffe0 	ldr	w0, [sp, #252]
+    241c:	11000400 	add	w0, w0, #0x1
+    2420:	b900ffe0 	str	w0, [sp, #252]
+    2424:	b940ffe1 	ldr	w1, [sp, #252]
+    2428:	b940f3e0 	ldr	w0, [sp, #240]
+    242c:	6b00003f 	cmp	w1, w0
+    2430:	54fff42b 	b.lt	22b4 <_Z15to442_greyscaleRN2cv3MatES1_im+0x190>  // b.tstop
+        }
+    }
+
+    return;
+    2434:	d503201f 	nop
+        }
+    }
+
+    return; 
+#endif
+}
+    2438:	a8d07bfd 	ldp	x29, x30, [sp], #256
+    243c:	d65f03c0 	ret
+
+0000000000002440 <_Z13get_neighborsRN2cv3MatEiiPh>:
+
+
+void get_neighbors(Mat& frame, int row, int col, uint8_t* neighbors_arr) {
+    2440:	a9bc7bfd 	stp	x29, x30, [sp, #-64]!
+    2444:	910003fd 	mov	x29, sp
+    2448:	f90017e0 	str	x0, [sp, #40]
+    244c:	b90027e1 	str	w1, [sp, #36]
+    2450:	b90023e2 	str	w2, [sp, #32]
+    2454:	f9000fe3 	str	x3, [sp, #24]
+    uint8_t* frame_data = frame.ptr<uint8_t>();
+    2458:	52800001 	mov	w1, #0x0                   	// #0
+    245c:	f94017e0 	ldr	x0, [sp, #40]
+    2460:	94000106 	bl	2878 <_ZN2cv3Mat3ptrIhEEPT_i>
+    2464:	f9001fe0 	str	x0, [sp, #56]
+    int cols = frame.cols;
+    2468:	f94017e0 	ldr	x0, [sp, #40]
+    246c:	b9400c00 	ldr	w0, [x0, #12]
+    2470:	b90037e0 	str	w0, [sp, #52]
+    int idx = row * cols + col;
+    2474:	b94027e1 	ldr	w1, [sp, #36]
+    2478:	b94037e0 	ldr	w0, [sp, #52]
+    247c:	1b007c20 	mul	w0, w1, w0
+    2480:	b94023e1 	ldr	w1, [sp, #32]
+    2484:	0b000020 	add	w0, w1, w0
+    2488:	b90033e0 	str	w0, [sp, #48]
+
+    neighbors_arr[0] = frame_data[idx - cols - 1]; // top-left
+    248c:	b94033e1 	ldr	w1, [sp, #48]
+    2490:	b94037e0 	ldr	w0, [sp, #52]
+    2494:	4b000020 	sub	w0, w1, w0
+    2498:	93407c00 	sxtw	x0, w0
+    249c:	d1000400 	sub	x0, x0, #0x1
+    24a0:	f9401fe1 	ldr	x1, [sp, #56]
+    24a4:	8b000020 	add	x0, x1, x0
+    24a8:	39400001 	ldrb	w1, [x0]
+    24ac:	f9400fe0 	ldr	x0, [sp, #24]
+    24b0:	39000001 	strb	w1, [x0]
+    neighbors_arr[1] = frame_data[idx - cols];     // top-center
+    24b4:	b94033e1 	ldr	w1, [sp, #48]
+    24b8:	b94037e0 	ldr	w0, [sp, #52]
+    24bc:	4b000020 	sub	w0, w1, w0
+    24c0:	93407c00 	sxtw	x0, w0
+    24c4:	f9401fe1 	ldr	x1, [sp, #56]
+    24c8:	8b000021 	add	x1, x1, x0
+    24cc:	f9400fe0 	ldr	x0, [sp, #24]
+    24d0:	91000400 	add	x0, x0, #0x1
+    24d4:	39400021 	ldrb	w1, [x1]
+    24d8:	39000001 	strb	w1, [x0]
+    neighbors_arr[2] = frame_data[idx - cols + 1]; // top-right
+    24dc:	b94033e1 	ldr	w1, [sp, #48]
+    24e0:	b94037e0 	ldr	w0, [sp, #52]
+    24e4:	4b000020 	sub	w0, w1, w0
+    24e8:	93407c00 	sxtw	x0, w0
+    24ec:	91000400 	add	x0, x0, #0x1
+    24f0:	f9401fe1 	ldr	x1, [sp, #56]
+    24f4:	8b000021 	add	x1, x1, x0
+    24f8:	f9400fe0 	ldr	x0, [sp, #24]
+    24fc:	91000800 	add	x0, x0, #0x2
+    2500:	39400021 	ldrb	w1, [x1]
+    2504:	39000001 	strb	w1, [x0]
+    neighbors_arr[3] = frame_data[idx - 1];        // mid-left
+    2508:	b98033e0 	ldrsw	x0, [sp, #48]
+    250c:	d1000400 	sub	x0, x0, #0x1
+    2510:	f9401fe1 	ldr	x1, [sp, #56]
+    2514:	8b000021 	add	x1, x1, x0
+    2518:	f9400fe0 	ldr	x0, [sp, #24]
+    251c:	91000c00 	add	x0, x0, #0x3
+    2520:	39400021 	ldrb	w1, [x1]
+    2524:	39000001 	strb	w1, [x0]
+    neighbors_arr[4] = frame_data[idx + 1];        // mid-right
+    2528:	b98033e0 	ldrsw	x0, [sp, #48]
+    252c:	91000400 	add	x0, x0, #0x1
+    2530:	f9401fe1 	ldr	x1, [sp, #56]
+    2534:	8b000021 	add	x1, x1, x0
+    2538:	f9400fe0 	ldr	x0, [sp, #24]
+    253c:	91001000 	add	x0, x0, #0x4
+    2540:	39400021 	ldrb	w1, [x1]
+    2544:	39000001 	strb	w1, [x0]
+    neighbors_arr[5] = frame_data[idx + cols - 1]; // bottom-left
+    2548:	b94033e1 	ldr	w1, [sp, #48]
+    254c:	b94037e0 	ldr	w0, [sp, #52]
+    2550:	0b000020 	add	w0, w1, w0
+    2554:	93407c00 	sxtw	x0, w0
+    2558:	d1000400 	sub	x0, x0, #0x1
+    255c:	f9401fe1 	ldr	x1, [sp, #56]
+    2560:	8b000021 	add	x1, x1, x0
+    2564:	f9400fe0 	ldr	x0, [sp, #24]
+    2568:	91001400 	add	x0, x0, #0x5
+    256c:	39400021 	ldrb	w1, [x1]
+    2570:	39000001 	strb	w1, [x0]
+    neighbors_arr[6] = frame_data[idx + cols];     // bottom-center
+    2574:	b94033e1 	ldr	w1, [sp, #48]
+    2578:	b94037e0 	ldr	w0, [sp, #52]
+    257c:	0b000020 	add	w0, w1, w0
+    2580:	93407c00 	sxtw	x0, w0
+    2584:	f9401fe1 	ldr	x1, [sp, #56]
+    2588:	8b000021 	add	x1, x1, x0
+    258c:	f9400fe0 	ldr	x0, [sp, #24]
+    2590:	91001800 	add	x0, x0, #0x6
+    2594:	39400021 	ldrb	w1, [x1]
+    2598:	39000001 	strb	w1, [x0]
+    neighbors_arr[7] = frame_data[idx + cols + 1]; // bottom-right
+    259c:	b94033e1 	ldr	w1, [sp, #48]
+    25a0:	b94037e0 	ldr	w0, [sp, #52]
+    25a4:	0b000020 	add	w0, w1, w0
+    25a8:	93407c00 	sxtw	x0, w0
+    25ac:	91000400 	add	x0, x0, #0x1
+    25b0:	f9401fe1 	ldr	x1, [sp, #56]
+    25b4:	8b000021 	add	x1, x1, x0
+    25b8:	f9400fe0 	ldr	x0, [sp, #24]
+    25bc:	91001c00 	add	x0, x0, #0x7
+    25c0:	39400021 	ldrb	w1, [x1]
+    25c4:	39000001 	strb	w1, [x0]
+
+    return;
+    25c8:	d503201f 	nop
+}
+    25cc:	a8c47bfd 	ldp	x29, x30, [sp], #64
+    25d0:	d65f03c0 	ret
+
+00000000000025d4 <_Z20apply_sobel_gradientPh>:
+
+
+uint8_t apply_sobel_gradient(uint8_t* neighbors) {
+    25d4:	d10203ff 	sub	sp, sp, #0x80
+    25d8:	f90007e0 	str	x0, [sp, #8]
+#ifdef SOBEL
+    const int8x8_t Gx_matrix = {-1, 0, 1, -2, 2, -1, 0, 1};
+    25dc:	90000000 	adrp	x0, 2000 <_ZN2cv5Size_IiEC1Ev+0x10>
+    25e0:	fd44f000 	ldr	d0, [x0, #2528]
+    25e4:	fd003fe0 	str	d0, [sp, #120]
+    const int8x8_t Gy_matrix = {1, 2, 1, 0, 0, -1, -2, -1};
+    25e8:	90000000 	adrp	x0, 2000 <_ZN2cv5Size_IiEC1Ev+0x10>
+    25ec:	fd44f400 	ldr	d0, [x0, #2536]
+    25f0:	fd003be0 	str	d0, [sp, #112]
+    25f4:	f94007e0 	ldr	x0, [sp, #8]
+    25f8:	f9000be0 	str	x0, [sp, #16]
+  return __builtin_aarch64_ld1v8qi_us (
+    25fc:	f9400be0 	ldr	x0, [sp, #16]
+    2600:	fd400000 	ldr	d0, [x0]
+				(const __builtin_aarch64_simd_qi *) __a);
+    2604:	d503201f 	nop
+    2608:	fd000fe0 	str	d0, [sp, #24]
+  return (int8x8_t) __a;
+    260c:	fd400fe0 	ldr	d0, [sp, #24]
+    
+    int8x8_t neighbors_vec = vreinterpret_s8_u8(vld1_u8(neighbors));
+    2610:	fd0037e0 	str	d0, [sp, #104]
+    2614:	fd4037e0 	ldr	d0, [sp, #104]
+    2618:	fd0017e0 	str	d0, [sp, #40]
+    261c:	90000000 	adrp	x0, 2000 <_ZN2cv5Size_IiEC1Ev+0x10>
+    2620:	fd44f000 	ldr	d0, [x0, #2528]
+    2624:	fd0013e0 	str	d0, [sp, #32]
+  return __a * __b;
+    2628:	fd4017e1 	ldr	d1, [sp, #40]
+    262c:	fd4013e0 	ldr	d0, [sp, #32]
+    2630:	0e209c20 	mul	v0.8b, v1.8b, v0.8b
+
+    // MAC
+    int8x8_t Gx_accum = vmul_s8(neighbors_vec, Gx_matrix);
+    2634:	fd0033e0 	str	d0, [sp, #96]
+    2638:	fd4037e0 	ldr	d0, [sp, #104]
+    263c:	fd001fe0 	str	d0, [sp, #56]
+    2640:	90000000 	adrp	x0, 2000 <_ZN2cv5Size_IiEC1Ev+0x10>
+    2644:	fd44f400 	ldr	d0, [x0, #2536]
+    2648:	fd001be0 	str	d0, [sp, #48]
+    264c:	fd401fe1 	ldr	d1, [sp, #56]
+    2650:	fd401be0 	ldr	d0, [sp, #48]
+    2654:	0e209c20 	mul	v0.8b, v1.8b, v0.8b
+    int8x8_t Gy_accum = vmul_s8(neighbors_vec, Gy_matrix);
+    2658:	fd002fe0 	str	d0, [sp, #88]
+    265c:	fd4033e0 	ldr	d0, [sp, #96]
+    2660:	fd0023e0 	str	d0, [sp, #64]
+  return __builtin_aarch64_saddlvv8qi (__a);
+    2664:	fd4023e0 	ldr	d0, [sp, #64]
+    2668:	0e303800 	saddlv	h0, v0.8b
+    266c:	0e022c00 	smov	w0, v0.h[0]
+    2670:	d503201f 	nop
+    
+    // reduce to scalar
+    int16_t Gx = vaddlv_s8(Gx_accum);
+    2674:	7900afe0 	strh	w0, [sp, #86]
+    2678:	fd402fe0 	ldr	d0, [sp, #88]
+    267c:	fd0027e0 	str	d0, [sp, #72]
+    2680:	fd4027e0 	ldr	d0, [sp, #72]
+    2684:	0e303800 	saddlv	h0, v0.8b
+    2688:	0e022c00 	smov	w0, v0.h[0]
+    268c:	d503201f 	nop
+    int16_t Gy = vaddlv_s8(Gy_accum);
+    2690:	7900abe0 	strh	w0, [sp, #84]
+
+    int16_t G = std::abs(Gx) + std::abs(Gy);
+    2694:	79c0afe0 	ldrsh	w0, [sp, #86]
+    2698:	7100001f 	cmp	w0, #0x0
+    269c:	5a80a400 	cneg	w0, w0, lt	// lt = tstop
+    26a0:	12003c01 	and	w1, w0, #0xffff
+    26a4:	79c0abe0 	ldrsh	w0, [sp, #84]
+    26a8:	7100001f 	cmp	w0, #0x0
+    26ac:	5a80a400 	cneg	w0, w0, lt	// lt = tstop
+    26b0:	12003c00 	and	w0, w0, #0xffff
+    26b4:	0b000020 	add	w0, w1, w0
+    26b8:	12003c00 	and	w0, w0, #0xffff
+    26bc:	7900a7e0 	strh	w0, [sp, #82]
+
+    return (G > MAX_8BIT) ? MAX_8BIT : G;
+    26c0:	79c0a7e2 	ldrsh	w2, [sp, #82]
+    26c4:	7940a7e1 	ldrh	w1, [sp, #82]
+    26c8:	52801fe0 	mov	w0, #0xff                  	// #255
+    26cc:	7103fc5f 	cmp	w2, #0xff
+    26d0:	1a80d020 	csel	w0, w1, w0, le
+    26d4:	13003c00 	sxth	w0, w0
+    26d8:	12001c00 	and	w0, w0, #0xff
+
+    int16_t G = std::abs(Gx) + std::abs(Gy);
+
+    return (G > MAX_8BIT) ? MAX_8BIT : G;
+#endif
+}
+    26dc:	910203ff 	add	sp, sp, #0x80
+    26e0:	d65f03c0 	ret
+
+00000000000026e4 <_Z11to442_sobelRN2cv3MatES1_im>:
+
+void to442_sobel(Mat& frame, Mat& end_frame, int id, size_t partition_size) {
+    26e4:	a9ba7bfd 	stp	x29, x30, [sp, #-96]!
+    26e8:	910003fd 	mov	x29, sp
+    26ec:	f9000bf3 	str	x19, [sp, #16]
+    26f0:	f9001fe0 	str	x0, [sp, #56]
+    26f4:	f9001be1 	str	x1, [sp, #48]
+    26f8:	b9002fe2 	str	w2, [sp, #44]
+    26fc:	f90013e3 	str	x3, [sp, #32]
+    int start_ind = id * partition_size;
+    2700:	b9802fe0 	ldrsw	x0, [sp, #44]
+    2704:	2a0003e1 	mov	w1, w0
+    2708:	f94013e0 	ldr	x0, [sp, #32]
+    270c:	1b007c20 	mul	w0, w1, w0
+    2710:	b9005fe0 	str	w0, [sp, #92]
+    int end_ind = start_ind + partition_size;
+    2714:	f94013e0 	ldr	x0, [sp, #32]
+    2718:	2a0003e1 	mov	w1, w0
+    271c:	b9405fe0 	ldr	w0, [sp, #92]
+    2720:	0b000020 	add	w0, w1, w0
+    2724:	b9005be0 	str	w0, [sp, #88]
+
+    if (id == 0) {
+    2728:	b9402fe0 	ldr	w0, [sp, #44]
+    272c:	7100001f 	cmp	w0, #0x0
+    2730:	54000081 	b.ne	2740 <_Z11to442_sobelRN2cv3MatES1_im+0x5c>  // b.any
+        start_ind++; 
+    2734:	b9405fe0 	ldr	w0, [sp, #92]
+    2738:	11000400 	add	w0, w0, #0x1
+    273c:	b9005fe0 	str	w0, [sp, #92]
+    } 
+    if (id == NUM_THREADS - 1) {
+    2740:	b9402fe0 	ldr	w0, [sp, #44]
+    2744:	71000c1f 	cmp	w0, #0x3
+    2748:	54000081 	b.ne	2758 <_Z11to442_sobelRN2cv3MatES1_im+0x74>  // b.any
+        end_ind--;
+    274c:	b9405be0 	ldr	w0, [sp, #88]
+    2750:	51000400 	sub	w0, w0, #0x1
+    2754:	b9005be0 	str	w0, [sp, #88]
+    }
+    
+    uint8_t neighbors[8];
+    for (int row = start_ind; row < end_ind; row++) {
+    2758:	b9405fe0 	ldr	w0, [sp, #92]
+    275c:	b90057e0 	str	w0, [sp, #84]
+    2760:	1400001f 	b	27dc <_Z11to442_sobelRN2cv3MatES1_im+0xf8>
+        for (int col = 1; col < frame.cols - 1; col++) {
+    2764:	52800020 	mov	w0, #0x1                   	// #1
+    2768:	b90053e0 	str	w0, [sp, #80]
+    276c:	14000013 	b	27b8 <_Z11to442_sobelRN2cv3MatES1_im+0xd4>
+            get_neighbors(frame, row, col, neighbors);
+    2770:	910123e0 	add	x0, sp, #0x48
+    2774:	aa0003e3 	mov	x3, x0
+    2778:	b94053e2 	ldr	w2, [sp, #80]
+    277c:	b94057e1 	ldr	w1, [sp, #84]
+    2780:	f9401fe0 	ldr	x0, [sp, #56]
+    2784:	97ffff2f 	bl	2440 <_Z13get_neighborsRN2cv3MatEiiPh>
+            end_frame.at<uint8_t>(row, col) = apply_sobel_gradient(neighbors);
+    2788:	b94053e2 	ldr	w2, [sp, #80]
+    278c:	b94057e1 	ldr	w1, [sp, #84]
+    2790:	f9401be0 	ldr	x0, [sp, #48]
+    2794:	94000046 	bl	28ac <_ZN2cv3Mat2atIhEERT_ii>
+    2798:	aa0003f3 	mov	x19, x0
+    279c:	910123e0 	add	x0, sp, #0x48
+    27a0:	97ffff8d 	bl	25d4 <_Z20apply_sobel_gradientPh>
+    27a4:	12001c00 	and	w0, w0, #0xff
+    27a8:	39000260 	strb	w0, [x19]
+        for (int col = 1; col < frame.cols - 1; col++) {
+    27ac:	b94053e0 	ldr	w0, [sp, #80]
+    27b0:	11000400 	add	w0, w0, #0x1
+    27b4:	b90053e0 	str	w0, [sp, #80]
+    27b8:	f9401fe0 	ldr	x0, [sp, #56]
+    27bc:	b9400c00 	ldr	w0, [x0, #12]
+    27c0:	51000400 	sub	w0, w0, #0x1
+    27c4:	b94053e1 	ldr	w1, [sp, #80]
+    27c8:	6b00003f 	cmp	w1, w0
+    27cc:	54fffd2b 	b.lt	2770 <_Z11to442_sobelRN2cv3MatES1_im+0x8c>  // b.tstop
+    for (int row = start_ind; row < end_ind; row++) {
+    27d0:	b94057e0 	ldr	w0, [sp, #84]
+    27d4:	11000400 	add	w0, w0, #0x1
+    27d8:	b90057e0 	str	w0, [sp, #84]
+    27dc:	b94057e1 	ldr	w1, [sp, #84]
+    27e0:	b9405be0 	ldr	w0, [sp, #88]
+    27e4:	6b00003f 	cmp	w1, w0
+    27e8:	54fffbeb 	b.lt	2764 <_Z11to442_sobelRN2cv3MatES1_im+0x80>  // b.tstop
+        }
+    }
+
+    return;
+    27ec:	d503201f 	nop
+}
+    27f0:	f9400bf3 	ldr	x19, [sp, #16]
+    27f4:	a8c67bfd 	ldp	x29, x30, [sp], #96
+    27f8:	d65f03c0 	ret
+
+00000000000027fc <_Z41__static_initialization_and_destruction_0ii>:
+    27fc:	a9be7bfd 	stp	x29, x30, [sp, #-32]!
+    2800:	910003fd 	mov	x29, sp
+    2804:	b9001fe0 	str	w0, [sp, #28]
+    2808:	b9001be1 	str	w1, [sp, #24]
+    280c:	b9401fe0 	ldr	w0, [sp, #28]
+    2810:	7100041f 	cmp	w0, #0x1
+    2814:	540001e1 	b.ne	2850 <_Z41__static_initialization_and_destruction_0ii+0x54>  // b.any
+    2818:	b9401be1 	ldr	w1, [sp, #24]
+    281c:	529fffe0 	mov	w0, #0xffff                	// #65535
+    2820:	6b00003f 	cmp	w1, w0
+    2824:	54000161 	b.ne	2850 <_Z41__static_initialization_and_destruction_0ii+0x54>  // b.any
+    2828:	d00000e0 	adrp	x0, 20000 <_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE@Base>
+    282c:	91064000 	add	x0, x0, #0x190
+    2830:	97fffb24 	bl	14c0 <_ZNSt8ios_base4InitC1Ev@plt>
+    2834:	d00000e0 	adrp	x0, 20000 <_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE@Base>
+    2838:	9104c002 	add	x2, x0, #0x130
+    283c:	d00000e0 	adrp	x0, 20000 <_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE@Base>
+    2840:	91064001 	add	x1, x0, #0x190
+    2844:	b00000e0 	adrp	x0, 1f000 <__FRAME_END__+0x1c098>
+    2848:	f947f000 	ldr	x0, [x0, #4064]
+    284c:	97fffb15 	bl	14a0 <__cxa_atexit@plt>
+    2850:	d503201f 	nop
+    2854:	a8c27bfd 	ldp	x29, x30, [sp], #32
+    2858:	d65f03c0 	ret
+
+000000000000285c <_GLOBAL__sub_I__Z15to442_greyscaleRN2cv3MatES1_im>:
+    285c:	a9bf7bfd 	stp	x29, x30, [sp, #-16]!
+    2860:	910003fd 	mov	x29, sp
+    2864:	529fffe1 	mov	w1, #0xffff                	// #65535
+    2868:	52800020 	mov	w0, #0x1                   	// #1
+    286c:	97ffffe4 	bl	27fc <_Z41__static_initialization_and_destruction_0ii>
+    2870:	a8c17bfd 	ldp	x29, x30, [sp], #16
+    2874:	d65f03c0 	ret
+
+0000000000002878 <_ZN2cv3Mat3ptrIhEEPT_i>:
+    CV_DbgAssert( y == 0 || (data && dims >= 1 && (unsigned)y < (unsigned)size.p[0]) );
+    return data + step.p[0] * y;
+}
+
+template<typename _Tp> inline
+_Tp* Mat::ptr(int y)
+    2878:	d10043ff 	sub	sp, sp, #0x10
+    287c:	f90007e0 	str	x0, [sp, #8]
+    2880:	b90007e1 	str	w1, [sp, #4]
+{
+    CV_DbgAssert( y == 0 || (data && dims >= 1 && (unsigned)y < (unsigned)size.p[0]) );
+    return (_Tp*)(data + step.p[0] * y);
+    2884:	f94007e0 	ldr	x0, [sp, #8]
+    2888:	f9400801 	ldr	x1, [x0, #16]
+    288c:	f94007e0 	ldr	x0, [sp, #8]
+    2890:	f9402400 	ldr	x0, [x0, #72]
+    2894:	f9400002 	ldr	x2, [x0]
+    2898:	b98007e0 	ldrsw	x0, [sp, #4]
+    289c:	9b007c40 	mul	x0, x2, x0
+    28a0:	8b000020 	add	x0, x1, x0
+}
+    28a4:	910043ff 	add	sp, sp, #0x10
+    28a8:	d65f03c0 	ret
+
+00000000000028ac <_ZN2cv3Mat2atIhEERT_ii>:
+    return Mat::ptr<_Tp>(idx.val);
+}
+
+
+template<typename _Tp> inline
+_Tp& Mat::at(int i0, int i1)
+    28ac:	d10043ff 	sub	sp, sp, #0x10
+    28b0:	f90007e0 	str	x0, [sp, #8]
+    28b4:	b90007e1 	str	w1, [sp, #4]
+    28b8:	b90003e2 	str	w2, [sp]
+    CV_DbgAssert(dims <= 2);
+    CV_DbgAssert(data);
+    CV_DbgAssert((unsigned)i0 < (unsigned)size.p[0]);
+    CV_DbgAssert((unsigned)(i1 * DataType<_Tp>::channels) < (unsigned)(size.p[1] * channels()));
+    CV_DbgAssert(CV_ELEM_SIZE1(traits::Depth<_Tp>::value) == elemSize1());
+    return ((_Tp*)(data + step.p[0] * i0))[i1];
+    28bc:	f94007e0 	ldr	x0, [sp, #8]
+    28c0:	f9400801 	ldr	x1, [x0, #16]
+    28c4:	f94007e0 	ldr	x0, [sp, #8]
+    28c8:	f9402400 	ldr	x0, [x0, #72]
+    28cc:	f9400002 	ldr	x2, [x0]
+    28d0:	b98007e0 	ldrsw	x0, [sp, #4]
+    28d4:	9b007c42 	mul	x2, x2, x0
+    28d8:	b98003e0 	ldrsw	x0, [sp]
+    28dc:	8b000040 	add	x0, x2, x0
+    28e0:	8b000020 	add	x0, x1, x0
+}
+    28e4:	910043ff 	add	sp, sp, #0x10
+    28e8:	d65f03c0 	ret
+
+Disassembly of section .fini:
+
+00000000000028ec <_fini>:
+    28ec:	d503201f 	nop
+    28f0:	a9bf7bfd 	stp	x29, x30, [sp, #-16]!
+    28f4:	910003fd 	mov	x29, sp
+    28f8:	a8c17bfd 	ldp	x29, x30, [sp], #16
+    28fc:	d65f03c0 	ret
