@@ -1,0 +1,161 @@
+CMD                   ,FPS       ,THREADS
+NAIVE                 ,23.015374 ,      1
+NAIVE                 ,23.249478 ,      1
+NAIVE                 ,23.230490 ,      1
+NAIVE                 ,23.159037 ,      1
+NAIVE                 ,23.190506 ,      1
+NAIVE                 ,23.094272 ,      1
+NAIVE                 ,23.243145 ,      1
+NAIVE                 ,23.213638 ,      1
+NAIVE                 ,23.031939 ,      1
+NAIVE                 ,23.238925 ,      1
+NAIVE                 ,23.241035 ,      1
+NAIVE                 ,23.243145 ,      1
+NAIVE                 ,23.085941 ,      1
+NAIVE                 ,23.169518 ,      1
+NAIVE                 ,23.175810 ,      1
+NAIVE                 ,23.133924 ,      1
+NAIVE                 ,23.213638 ,      1
+NAIVE                 ,23.015374 ,      1
+NAIVE                 ,23.196810 ,      1
+NAIVE                 ,23.302385 ,      1
+SOBEL_VEC             ,28.939634 ,      1
+SOBEL_VEC             ,29.187094 ,      1
+SOBEL_VEC             ,29.240434 ,      1
+SOBEL_VEC             ,29.001926 ,      1
+SOBEL_VEC             ,29.197080 ,      1
+SOBEL_VEC             ,29.157175 ,      1
+SOBEL_VEC             ,29.034819 ,      1
+SOBEL_VEC             ,29.367902 ,      1
+SOBEL_VEC             ,29.263832 ,      1
+SOBEL_VEC             ,29.130633 ,      1
+SOBEL_VEC             ,29.133948 ,      1
+SOBEL_VEC             ,29.200411 ,      1
+SOBEL_VEC             ,29.177114 ,      1
+SOBEL_VEC             ,29.220409 ,      1
+SOBEL_VEC             ,29.031526 ,      1
+SOBEL_VEC             ,28.933092 ,      1
+SOBEL_VEC             ,29.217074 ,      1
+SOBEL_VEC             ,29.143898 ,      1
+SOBEL_VEC             ,28.975665 ,      1
+SOBEL_VEC             ,29.177114 ,      1
+SOBEL_VEC + FLOAT_VEC , 7.473362 ,      1
+SOBEL_VEC + FLOAT_VEC , 7.461599 ,      1
+SOBEL_VEC + FLOAT_VEC , 7.467911 ,      1
+SOBEL_VEC + FLOAT_VEC , 7.465733 ,      1
+SOBEL_VEC + FLOAT_VEC , 7.467693 ,      1
+SOBEL_VEC + FLOAT_VEC , 7.480131 ,      1
+SOBEL_VEC + FLOAT_VEC , 7.467040 ,      1
+SOBEL_VEC + FLOAT_VEC , 7.470962 ,      1
+SOBEL_VEC + FLOAT_VEC , 7.481443 ,      1
+SOBEL_VEC + FLOAT_VEC , 7.488884 ,      1
+SOBEL_VEC + FLOAT_VEC , 7.478820 ,      1
+SOBEL_VEC + FLOAT_VEC , 7.485380 ,      1
+SOBEL_VEC + FLOAT_VEC , 7.470526 ,      1
+SOBEL_VEC + FLOAT_VEC , 7.484724 ,      1
+SOBEL_VEC + FLOAT_VEC , 7.486037 ,      1
+SOBEL_VEC + FLOAT_VEC , 7.485380 ,      1
+SOBEL_VEC + FLOAT_VEC , 7.496779 ,      1
+SOBEL_VEC + FLOAT_VEC , 7.477727 ,      1
+SOBEL_VEC + FLOAT_VEC , 7.478383 ,      1
+SOBEL_VEC + FLOAT_VEC , 7.473580 ,      1
+SOBEL_VEC + FIXED_VEC ,30.360531 ,      1
+SOBEL_VEC + FIXED_VEC ,30.210054 ,      1
+SOBEL_VEC + FIXED_VEC ,30.346136 ,      1
+SOBEL_VEC + FIXED_VEC ,30.299444 ,      1
+SOBEL_VEC + FIXED_VEC ,30.206490 ,      1
+SOBEL_VEC + FIXED_VEC ,30.288689 ,      1
+SOBEL_VEC + FIXED_VEC ,30.075188 ,      1
+SOBEL_VEC + FIXED_VEC ,30.245747 ,      1
+SOBEL_VEC + FIXED_VEC ,29.962547 ,      1
+SOBEL_VEC + FIXED_VEC ,30.256471 ,      1
+SOBEL_VEC + FIXED_VEC ,30.170890 ,      1
+SOBEL_VEC + FIXED_VEC ,30.356931 ,      1
+SOBEL_VEC + FIXED_VEC ,30.342539 ,      1
+SOBEL_VEC + FIXED_VEC ,30.075188 ,      1
+SOBEL_VEC + FIXED_VEC ,30.317385 ,      1
+SOBEL_VEC + FIXED_VEC ,30.285106 ,      1
+SOBEL_VEC + FIXED_VEC ,30.281524 ,      1
+SOBEL_VEC + FIXED_VEC ,30.260047 ,      1
+SOBEL_VEC + FIXED_VEC ,30.210054 ,      1
+SOBEL_VEC + FIXED_VEC ,30.149570 ,      1
+NAIVE                 ,42.902631 ,      4
+NAIVE                 ,43.294436 ,      4
+NAIVE                 ,42.745033 ,      4
+NAIVE                 ,42.595674 ,      4
+NAIVE                 ,43.046914 ,      4
+NAIVE                 ,42.567343 ,      4
+NAIVE                 ,42.902631 ,      4
+NAIVE                 ,43.119421 ,      4
+NAIVE                 ,42.909822 ,      4
+NAIVE                 ,43.046914 ,      4
+NAIVE                 ,42.602763 ,      4
+NAIVE                 ,42.759312 ,      4
+NAIVE                 ,42.745033 ,      4
+NAIVE                 ,42.996305 ,      4
+NAIVE                 ,43.032442 ,      4
+NAIVE                 ,42.895442 ,      4
+NAIVE                 ,43.338412 ,      4
+NAIVE                 ,42.787899 ,      4
+NAIVE                 ,42.461436 ,      4
+NAIVE                 ,43.126685 ,      4
+SOBEL_VEC             ,47.886270 ,      4
+SOBEL_VEC             ,48.093181 ,      4
+SOBEL_VEC             ,47.337278 ,      4
+SOBEL_VEC             ,47.850467 ,      4
+SOBEL_VEC             ,47.548291 ,      4
+SOBEL_VEC             ,47.707790 ,      4
+SOBEL_VEC             ,47.565961 ,      4
+SOBEL_VEC             ,47.922127 ,      4
+SOBEL_VEC             ,47.690015 ,      4
+SOBEL_VEC             ,48.084147 ,      4
+SOBEL_VEC             ,48.084147 ,      4
+SOBEL_VEC             ,47.645636 ,      4
+SOBEL_VEC             ,47.743379 ,      4
+SOBEL_VEC             ,48.075117 ,      4
+SOBEL_VEC             ,47.557124 ,      4
+SOBEL_VEC             ,47.922127 ,      4
+SOBEL_VEC             ,47.779022 ,      4
+SOBEL_VEC             ,47.725578 ,      4
+SOBEL_VEC             ,47.967023 ,      4
+SOBEL_VEC             ,47.468941 ,      4
+SOBEL_VEC + FLOAT_VEC ,18.494437 ,      4
+SOBEL_VEC + FLOAT_VEC ,18.538634 ,      4
+SOBEL_VEC + FLOAT_VEC ,18.653454 ,      4
+SOBEL_VEC + FLOAT_VEC ,18.701147 ,      4
+SOBEL_VEC + FLOAT_VEC ,18.662973 ,      4
+SOBEL_VEC + FLOAT_VEC ,18.624955 ,      4
+SOBEL_VEC + FLOAT_VEC ,18.714818 ,      4
+SOBEL_VEC + FLOAT_VEC ,18.451780 ,      4
+SOBEL_VEC + FLOAT_VEC ,18.713450 ,      4
+SOBEL_VEC + FLOAT_VEC ,18.595191 ,      4
+SOBEL_VEC + FLOAT_VEC ,18.676589 ,      4
+SOBEL_VEC + FLOAT_VEC ,18.469086 ,      4
+SOBEL_VEC + FLOAT_VEC ,18.660252 ,      4
+SOBEL_VEC + FLOAT_VEC ,18.664334 ,      4
+SOBEL_VEC + FLOAT_VEC ,18.587091 ,      4
+SOBEL_VEC + FLOAT_VEC ,18.697049 ,      4
+SOBEL_VEC + FLOAT_VEC ,18.473084 ,      4
+SOBEL_VEC + FLOAT_VEC ,18.589790 ,      4
+SOBEL_VEC + FLOAT_VEC ,18.775211 ,      4
+SOBEL_VEC + FLOAT_VEC ,18.707980 ,      4
+SOBEL_VEC + FIXED_VEC ,48.864287 ,      4
+SOBEL_VEC + FIXED_VEC ,48.995215 ,      4
+SOBEL_VEC + FIXED_VEC ,48.939017 ,      4
+SOBEL_VEC + FIXED_VEC ,48.892284 ,      4
+SOBEL_VEC + FIXED_VEC ,48.882948 ,      4
+SOBEL_VEC + FIXED_VEC ,48.892284 ,      4
+SOBEL_VEC + FIXED_VEC ,49.411311 ,      4
+SOBEL_VEC + FIXED_VEC ,49.079755 ,      4
+SOBEL_VEC + FIXED_VEC ,48.576850 ,      4
+SOBEL_VEC + FIXED_VEC ,48.939017 ,      4
+SOBEL_VEC + FIXED_VEC ,48.696975 ,      4
+SOBEL_VEC + FIXED_VEC ,48.854962 ,      4
+SOBEL_VEC + FIXED_VEC ,49.297131 ,      4
+SOBEL_VEC + FIXED_VEC ,48.696975 ,      4
+SOBEL_VEC + FIXED_VEC ,49.230769 ,      4
+SOBEL_VEC + FIXED_VEC ,49.268668 ,      4
+SOBEL_VEC + FIXED_VEC ,49.070347 ,      4
+SOBEL_VEC + FIXED_VEC ,48.743336 ,      4
+SOBEL_VEC + FIXED_VEC ,48.503221 ,      4
+SOBEL_VEC + FIXED_VEC ,48.771195 ,      4

@@ -8,20 +8,19 @@
 using namespace cv;
 using namespace std;
 
-#define ARG_LEN         (2)
-#define WINDOW_LENGTH   (720)
-#define WINDOW_HEIGHT   (480)
 
+#define NUM_THREADS     (4)
 
 #define BYTES_PER_PIXEL (3)
 #define RED_WEIGHT      (.299f)
 #define GREEN_WEIGHT    (.587f)
 #define BLUE_WEIGHT     (.114f)
+#define MAX_8BIT        (0xff)
 
-void to442_greyscale(Mat& frame, Mat& end_frame);
+void to442_greyscale(Mat& frame, Mat& end_frame, int id, size_t partition_size);
 uint8_t apply_greyscale(uint8_t* pixel);
 
-void to442_sobel(Mat& frame, Mat& end_frame);
+void to442_sobel(Mat& frame, Mat& end_frame, int id, size_t partition_size);
 uint8_t apply_sobel_gradient(uint8_t* neighbors);
 
 void get_neighbors(Mat& frame, int row, int col, uint8_t* neighbors_arr);

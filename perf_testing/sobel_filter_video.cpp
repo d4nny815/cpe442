@@ -2,6 +2,21 @@
 #include <stdio.h>
 #include "sobel.hpp"
 
+#define ARG_LEN         (2)
+#define WINDOW_LENGTH   (720)
+#define WINDOW_HEIGHT   (480)
+
+pthread_t threads[NUM_THREADS];
+typedef struct threadArgs_t {
+    int id;
+    Mat frame;
+    Mat grey_frame;
+    Mat sobel_frame;
+} threadArgs_t;
+pthread_barrier_t barrier;
+void* thread_sobelfilter_func(void* threadArg);
+
+
 int main(int argc, char** argv) {
     if (argc != ARG_LEN) {
         printf("Usage: %s <image_path>\n", argv[0]);
@@ -13,6 +28,8 @@ int main(int argc, char** argv) {
         printf("Error: Could not open or find the video.\n");
         exit(1);
     }
+
+    pthread_barrier_init(&barrier, NULL, NUM_THREADS);
 
     // real time fps
     #ifdef RT_FPS 
@@ -47,9 +64,16 @@ int main(int argc, char** argv) {
         #endif
         frame_count++;
 
-        // TODO: add in here
-        to442_greyscale(frame, grey_frame);
-        to442_sobel(grey_frame, sobel_frame);
+        threadArgs_t threadArgs[NUM_THREADS];
+
+        for (int i = 0; i < NUM_THREADS; i++) {
+            threadArgs[i] = {i, frame, grey_frame, sobel_frame};
+            pthread_create(&threads[i], NULL, thread_sobelfilter_func, (void*)&threadArgs[i]);
+        }
+
+        for (int i = 0; i < NUM_THREADS; i++) {
+            pthread_join(threads[i], NULL);
+        }
 
 
         // namedWindow("Original", WINDOW_NORMAL);
@@ -71,9 +95,20 @@ int main(int argc, char** argv) {
     auto time_elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
     double avg_fps = frame_count * 1000.0 / time_elapsed;
 
-    printf("avg fps: %f\n", avg_fps);
+    printf("%f, %d\n", avg_fps, NUM_THREADS);
 
     return 0;
 }
 
+
+void* thread_sobelfilter_func(void* threadArg) {
+    threadArgs_t* args = (threadArgs_t*) threadArg;
+    int partition_size = args->frame.rows / NUM_THREADS;
+
+    to442_greyscale(args->frame, args->grey_frame, args->id, partition_size);
+    pthread_barrier_wait(&barrier);
+    to442_sobel(args->grey_frame, args->sobel_frame, args->id, partition_size);
+
+    pthread_exit(NULL);
+}
 
