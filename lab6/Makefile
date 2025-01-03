@@ -1,29 +1,31 @@
+# Makefile
 CC = g++
-
-CFLAGS = -Wall -O3 -Werror -g -std=c++11 -lpthread -march=armv8-a -mtune=cortex-a72 -ffast-math -fopenmp -findirect-inlining -funroll-loops -floop-parallelize-all -ftree-vectorize -ftree-loop-vectorize
-
-
+CFLAGS = -Wall -O3 -Werror -g -std=c++11 
+LD_FLAGS = -lpthread
 OPENCV_FLAGS = `pkg-config --cflags --libs opencv4`
-
-LD_FLAGS = -L/usr/local/lib
 
 RT_FPS_OPTS = -DRT_FPS
 
-SRC = sobel_filter_video
+# flags added
+CFLAGS += -funroll-loops -floop-parallelize-all -floop-interchange  -floop-block
 
-all: $(SRC)
 
-$(SRC): $(SRC).cpp
-	$(CC) $(CFLAGS) -o $(SRC) $< $(OPENCV_FLAGS)
+.PHONY: clean all
 
-rtfps: $(SRC).cpp
-	$(CC) $(CFLAGS) $(RT_FPS_OPTS) -o $(SRC) $< $(OPENCV_FLAGS)
+ifeq ($(RTFPS), 1)
+CFLAGS += $(RT_FPS_OPTS)
+endif
 
-test: test.cpp
-	$(CC) $(CFLAGS) $(LD_FLAGS) -o $@ $< $(OPENCV_FLAGS)
+all: sobel_filter_video
 
-fun: experimenting.cpp
-	$(CC) $(CFLAGS) $(LD_FLAGS) -o $@ $< 
+sobel_filter_video: sobel_filter_video.o sobel.o
+	$(CC) $(CFLAGS) $^ $(OPENCV_FLAGS) -o $@
+
+sobel_filter_video.o: sobel_filter_video.cpp
+	$(CC) $(CFLAGS) $(LD_FLAGS) -c $< $(OPENCV_FLAGS) -o $@ 
+
+sobel.o: sobel.cpp sobel.hpp
+	$(CC) $(CFLAGS) -c $< $(OPENCV_FLAGS) -o $@ 
 
 clean:
-	rm -f sobel_filter_video test fun
+	rm -rf sobel_filter_video *.o
